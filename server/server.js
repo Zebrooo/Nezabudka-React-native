@@ -8,6 +8,8 @@ const userRouter = require('./routes/userRouter');
 const eventRouter = require('./routes/eventRouter');
 const categoryShopRouter = require('./routes/categoryShopRouter')
 const shopRouter = require('./routes/shopRouter')
+const commentRouter = require('./routes/commentRouter')
+const holidayRouter = require('./routes/holidayRouter')
 
 const app = express();
 
@@ -40,6 +42,8 @@ app.use(
 app.use('/user', userRouter);
 app.use('/event', eventRouter);
 app.use('/category', categoryShopRouter);
-app.use('/shop', shopRouter)
+app.use('/shops', shopRouter)
+app.use('/comments', commentRouter)
+app.use('/holidays', holidayRouter)
 
 app.listen(PORT, () => console.log(`Server has started on ${PORT}`));
