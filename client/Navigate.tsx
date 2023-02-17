@@ -13,7 +13,7 @@ const newEventName = 'New Event';
 const settingsName = 'Settings';
 
 const Tab = createBottomTabNavigator();
-
+// hggh
 export default function MainContainer() {
   return (
     <NavigationContainer>
