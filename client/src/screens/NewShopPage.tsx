@@ -11,7 +11,7 @@ export default function NewShopPage({ navigation }) {
       >
         {(props) => (
           <View>
-            <Text>Название магазина</Text>
+            <Text>Название магазинаa</Text>
             <TextInput
               onChangeText={props.handleChange('email')}
               value={props.values.email}
