@@ -8,6 +8,7 @@ import NewEventScreen from './src/screens/NewEventScreen';
 import SexPage from './src/screens/SexPage/SexPage';
 import WomenPage from './src/screens/WomenPage/WomenPage';
 import Navigate from './Navigate';
+import './config/firebase';
 
 export default function App() {
   return <Navigate />;
