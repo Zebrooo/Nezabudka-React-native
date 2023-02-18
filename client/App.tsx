@@ -7,23 +7,17 @@ import MainPage from './src/screens/MainPage';
 import NewEventScreen from './src/screens/NewEventScreen';
 import SexPage from './src/screens/SexPage/SexPage';
 import WomenPage from './src/screens/WomenPage/WomenPage';
-import './config/firebase';
+import Navigate from './Navigate';
 
 export default function App() {
-  return (
-    
-    <View style={styles.container}>
-      <WomenPage />
-      <StatusBar style="auto" />
-    </View>
-  );
+  return <Navigate />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
