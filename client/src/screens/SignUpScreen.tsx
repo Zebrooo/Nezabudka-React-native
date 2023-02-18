@@ -13,8 +13,10 @@ export default function SignUpScreen({ navigation }) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.user);
   const SignUpHandler = (email, password, name): void => {
+    console.log({ email, password, name });
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
+        console.log(user);
         dispatch(
           setUserFirestorm({
             email: user.email,
@@ -30,7 +32,10 @@ export default function SignUpScreen({ navigation }) {
     <View style={styles.main}>
       <Formik
         initialValues={{ email: "", hashpass: "", username: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values, { resetForm }) => {
+          SignUpHandler(values.email, values.hashpass, values.username);
+          resetForm({ values: "" });
+        }}
       >
         {(props) => (
           <View style={{ marginTop: "40%", marginLeft: "17%" }}>
@@ -38,22 +43,20 @@ export default function SignUpScreen({ navigation }) {
             <TextInput
               style={styles.input}
               onChangeText={props.handleChange("username")}
-              value={props.values.username}
             ></TextInput>
             <Text style={styles.text}>Введите вашу почту</Text>
             <TextInput
               style={styles.input}
               onChangeText={props.handleChange("email")}
-              value={props.values.email}
             ></TextInput>
             <Text style={styles.text}>Введите ваш пароль</Text>
             <TextInput
               style={styles.input}
               onChangeText={props.handleChange("hashpass")}
-              value={props.values.hashpass}
             ></TextInput>
+            <Button onPress={props.handleSubmit} title="Sign up"></Button>
             <TouchableOpacity
-              onPress={() => navigation.navigate("LoginScreen")}
+              onPress={() => navigation.navigate("SignInScreen")}
             >
               <Text style={styles.textBtn}>Регистрация</Text>
             </TouchableOpacity>
