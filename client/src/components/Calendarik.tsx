@@ -7,9 +7,6 @@ export default function Calendarik():JSX.Element {
   return (
       <View>
          <Calendar  />
-        <Text>
-          Календарь
-        </Text>
       </View>
 
   );
