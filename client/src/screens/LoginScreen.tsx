@@ -1,28 +1,31 @@
-import { Formik } from 'formik';
-import React from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Formik } from "formik";
+import React from "react";
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import styles from "../styles/stylesall";
 
 export default function LoginScreen({ navigation }) {
   return (
-    <View>
+    <View style={styles.main}>
       <Formik
-        initialValues={{ email: '', hashpass: '', username: '' }}
+        initialValues={{ email: "", hashpass: "", username: "" }}
         onSubmit={(values) => console.log(values)}
       >
         {(props) => (
-          <View>
-            <Text>Введите ваш логин</Text>
+          <View style={{ marginTop: "40%", marginLeft: "17%" }}>
+            <Text style={styles.text}>Введите ваш логин</Text>
             <TextInput
-              onChangeText={props.handleChange('email')}
+              style={styles.input}
+              onChangeText={props.handleChange("email")}
               value={props.values.email}
             ></TextInput>
-            <Text>Введите ваш пароль</Text>
+            <Text style={styles.text}>Введите ваш пароль</Text>
             <TextInput
-              onChangeText={props.handleChange('hashpass')}
+              style={styles.input}
+              onChangeText={props.handleChange("hashpass")}
               value={props.values.hashpass}
             ></TextInput>
             <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
-              <Text> Don't have account?</Text>
+            <Text style={styles.textBtn}> Войти</Text>
             </TouchableOpacity>
           </View>
         )}

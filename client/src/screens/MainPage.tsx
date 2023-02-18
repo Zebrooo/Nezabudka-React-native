@@ -1,12 +1,15 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 import Calendarik from '../components/Calendarik'
+import styles from '../styles/stylesall'
 
 export default function MainPage() {
   return (
-    <View>
+    <View style={styles.main}>
         <Calendarik/>
-        <Text>ближайший список событий</Text>
+      <View style={{ marginTop: "10%", marginLeft: "17%"}}>
+        <Text style={styles.text}>ближайший список событий</Text>
+        </View>
     </View>
   )
 }
