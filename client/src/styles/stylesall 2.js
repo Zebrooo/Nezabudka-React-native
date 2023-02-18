@@ -3,15 +3,13 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   main: {
     backgroundColor: '#d9ebf7',
-    width: '100%',
-    height: '100%',
   },
   container: {
     width: '100%',
     height: '100%',
-    // marginTop: '50%',
-    // marginLeft: '25%',
-    // top: 0,
+    marginTop: '50%',
+    marginLeft: '25%',
+    top: 0,
   },
   input: {
     backgroundColor: '#bad9ed',
@@ -20,7 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderRadius: 10,
     padding: 12,
-    width: '80%',
+    width: '50%',
   },
   botton: {
     backgroundColor: '#4587b4',
@@ -29,11 +27,10 @@ const styles = StyleSheet.create({
     width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 30,
+    marginTop: 40,
   },
   text: {
     fontFamily: 'Palatino',
-    fontSize: 18,
   },
   textAdd: {
     fontSize: 18,

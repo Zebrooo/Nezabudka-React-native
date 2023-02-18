@@ -1,21 +1,22 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import styles from '../../styles/stylesall';
 
 export default function SexPage ({ navigation }) {
   return (
-    <View>
+    <View style={styles.main}>
       
           <View>
              <TouchableOpacity
               onPress={() => navigation.navigate('ManPage')}
             >
-              <Text> Подарок для мужчины</Text>
+              <Text style={styles.text}> Подарок для мужчины</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate('WomenPage')}
             >
-              <Text> Подарок для женщины</Text>
+              <Text style={styles.text}> Подарок для женщины</Text>
             </TouchableOpacity>
           </View>
       
