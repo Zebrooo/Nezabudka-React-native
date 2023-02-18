@@ -5,11 +5,7 @@ import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 export default function SexPage ({ navigation }) {
   return (
     <View>
-      <Formik
-        initialValues={{ email: '', hashpass: '', username: '' }}
-        onSubmit={(values) => console.log(values)}
-      >
-        {(props) => (
+      
           <View>
              <TouchableOpacity
               onPress={() => navigation.navigate('ManPage')}
@@ -22,8 +18,7 @@ export default function SexPage ({ navigation }) {
               <Text> Подарок для женщины</Text>
             </TouchableOpacity>
           </View>
-        )}
-      </Formik>
+      
     </View>
   );
 }
