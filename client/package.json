@@ -26,7 +26,8 @@
     "react-native": "0.70.5",
     "react-native-calendars": "^1.1293.0",
     "react-native-web": "~0.18.9",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "@expo/webpack-config": "^0.17.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

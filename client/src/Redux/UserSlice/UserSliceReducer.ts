@@ -60,7 +60,7 @@ export const registrationAction = (regInput) : AppThunk => (dispatch) => {
 };
 export const loginAction = (input): AppThunk  => (dispatch) => {
   axios
-    .post("/user/signin", input)
+    .post("/user/login", input)
     .then((resp) => dispatch(setUser(resp.data)))
     .catch((err) => {
       Alert.alert("Error", err.response.data.message);

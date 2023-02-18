@@ -6,14 +6,16 @@ import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
 import { registrationAction } from "../Redux/UserSlice/UserSliceReducer";
-import  type { User } from "../Redux/UserSlice/UserType";
+import type { User } from "../Redux/UserSlice/UserType";
 
 export default function SignUpScreen({ navigation }) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.user);
   const SignUpHandler = (email, password, name): void => {
+    console.log({ email, password, name });
     createUserWithEmailAndPassword(auth, email, password)
       .then(({ user }) => {
+        console.log(user);
         dispatch(
           setUserFirestorm({
             email: user.email,
@@ -29,29 +31,33 @@ export default function SignUpScreen({ navigation }) {
     <View>
       <Formik
         initialValues={{ email: "", hashpass: "", username: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values, { resetForm }) => {
+          SignUpHandler(values.email, values.hashpass, values.username);
+          resetForm({ values: "" });
+        }}
       >
         {(props) => (
           <View>
             <Text>Введите ваш логин</Text>
             <TextInput
-              onChangeText={props.handleChange("username")}
               value={props.values.username}
+              onChangeText={props.handleChange("username")}
             ></TextInput>
             <Text>Введите вашу почту</Text>
             <TextInput
-              onChangeText={props.handleChange("email")}
               value={props.values.email}
+              onChangeText={props.handleChange("email")}
             ></TextInput>
             <Text>Введите ваш пароль</Text>
             <TextInput
-              onChangeText={props.handleChange("hashpass")}
               value={props.values.hashpass}
+              onChangeText={props.handleChange("hashpass")}
             ></TextInput>
+            <Button onPress={props.handleSubmit} title="Sign up"></Button>
             <TouchableOpacity
-              onPress={() => navigation.navigate("LoginScreen")}
+              onPress={() => navigation.navigate("SignInScreen")}
             >
-              <Text> Already account?</Text>
+              <Text> Already have account?</Text>
             </TouchableOpacity>
           </View>
         )}
