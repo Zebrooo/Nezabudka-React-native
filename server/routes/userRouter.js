@@ -35,6 +35,7 @@ router.get("/", async (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
+    console.log("in server");
     const { username, email, hashpass } = req.body;
     if (!username || !email || !hashpass) {
       return res.status(400).json({ message: "All fields must be filled" });
@@ -111,27 +112,29 @@ router.post(
   "/upload-avatar",
   avatarsUpload.single("avatar"),
   async (req, res) => {
-    try {const userid = req.session.user.id;
-    const user = await User.findByPk(userid);
-    user.avatar = req.file.path;
-    user.save();
-    return res.sendStatus(200);}
-    catch (err) {
-        console.log(err);
-        return res.sendStatus(500);
-      }
+    try {
+      const userid = req.session.user.id;
+      const user = await User.findByPk(userid);
+      user.avatar = req.file.path;
+      user.save();
+      return res.sendStatus(200);
+    } catch (err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
   }
 );
 
 router.get("/img/usersAvatars/:username.jpg", (req, res) => {
   try {
     const { username } = req.params;
-    return res.sendFile(path.join(__dirname, `../img/usersAvatars/${username}.jpg`));
+    return res.sendFile(
+      path.join(__dirname, `../img/usersAvatars/${username}.jpg`)
+    );
   } catch (err) {
     console.log(err);
     return res.sendStatus(500);
   }
 });
-
 
 module.exports = router;

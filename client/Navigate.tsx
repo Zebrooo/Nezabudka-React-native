@@ -19,7 +19,7 @@ const newEventName = 'New Event';
 const profileName = 'Profile';
 const giftName = 'Gifts';
 
-const isAuth = true;
+const isAuth = false;
 
 const Tab = createBottomTabNavigator();
 
