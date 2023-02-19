@@ -101,7 +101,7 @@ const GiftStack = createStackNavigator();
 
 function GiftNavigator() {
   return (
-    <GiftStack.Navigator initialRouteName="ManPage">
+    <GiftStack.Navigator initialRouteName="SexPage">
       <GiftStack.Screen
         name="SexPage"
         component={SexPage}

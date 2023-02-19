@@ -52,29 +52,25 @@ export const findUserAction = (): AppThunk => (dispatch) => {
     .catch(console.log);
 };
 
-export const registrationAction =
-  (regInput): AppThunk =>
-  (dispatch) => {
-    axios
-      .post("/user/signup", regInput)
-      .then((resp) => dispatch(setUser(resp.data)))
-      .catch((err) => {
-        Alert.alert("Error", err.response.data.message);
-        console.log(err);
-      });
-  };
-export const loginAction =
-  (input): AppThunk =>
-  (dispatch) => {
-    axios
-      .post("/user/login", input)
-      .then((resp) => dispatch(setUser(resp.data)))
-      .catch((err) => {
-        Alert.alert("Error", err.response.data.message);
-        console.log(err.response.data);
-      });
-  };
-export const userCheckAction = (): AppThunk => (dispatch) => {
+export const registrationAction = (regInput) : AppThunk => (dispatch) => {
+  axios
+    .post("/user/signup", regInput)
+    .then((resp) => dispatch(setUser(resp.data)))
+    .catch((err) => {
+      // Alert.alert("Error", err.response.data.message);
+      console.log(err);
+    });
+};
+export const loginAction = (input): AppThunk  => (dispatch) => {
+  axios
+    .post("/user/login", input)
+    .then((resp) => dispatch(setUser(resp.data)))
+    .catch((err) => {
+      // Alert.alert("Error", err.response.data.message);
+      console.log(err.response.data);
+    });
+};
+export const userCheckAction = (): AppThunk  => (dispatch) => {
   axios
     .post("/user/check")
     .then((res) => dispatch(setUser(res.data)))
