@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Holiday.init({
     name: DataTypes.TEXT,
-    date: DataTypes.DATE
+    date: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Holiday',
