@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: '#bad9ed',
     height: 40,
-    marginBottom: 20,
+    marginBottom: 10,
     fontSize: 16,
     borderRadius: 10,
     padding: 12,
@@ -25,11 +25,12 @@ const styles = StyleSheet.create({
   botton: {
     backgroundColor: '#4587b4',
     height: 58,
-    borderRadius: 10,
+    borderRadius: 40,
     width: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 30,
+    marginTop: 10,
+    marginLeft: 40,
   },
   text: {
     fontFamily: 'Palatino',
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
   },
   textBtn: {
     fontSize: 24,
+    color: 'black',
   },
 });
 

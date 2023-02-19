@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    console.log("in server");
+    console.log(req.body);
     const { username, email, hashpass } = req.body;
     if (!username || !email || !hashpass) {
       return res.status(400).json({ message: "All fields must be filled" });
@@ -62,6 +62,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
+    console.log(req.body);
     const { email, hashpass } = req.body;
     if (!email || !hashpass) {
       return res

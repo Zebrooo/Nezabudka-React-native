@@ -60,7 +60,7 @@ export default function MainContainer() {
           <Tab.Screen
             name="Auth"
             component={SignInNavigator}
-            // options={{ headerShown: false }}
+            options={{ headerShown: false }}
           />
         )}
       </Tab.Navigator>
