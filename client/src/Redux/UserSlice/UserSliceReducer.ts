@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import { AppThunk } from "../hooks";
 import { User } from "../UserSlice/UserType";
 
-const initialState  = null;
+const initialState = { name: "", email: "", token: "" };
 
 const userSlice = createSlice({
   name: "user",
@@ -37,38 +37,44 @@ const userSlice = createSlice({
 export const { findUser, setUser, logoutUser, editUser } = userSlice.actions;
 export default userSlice.reducer;
 
-export const editProfileAction = (id, values): AppThunk => (dispatch) => {
-  axios
-    .patch(`/user/${id}/edit`, { values })
-    .then((res) => dispatch(editUser(res.data)))
-    .catch((err) => console.log(err.response.data));
-};
+export const editProfileAction =
+  (id, values): AppThunk =>
+  (dispatch) => {
+    axios
+      .patch(`/user/${id}/edit`, { values })
+      .then((res) => dispatch(editUser(res.data)))
+      .catch((err) => console.log(err.response.data));
+  };
 
-export const findUserAction = (): AppThunk  => (dispatch) => {
+export const findUserAction = (): AppThunk => (dispatch) => {
   axios("/user")
     .then((res) => dispatch(findUser(res.data)))
     .catch(console.log);
 };
 
-export const registrationAction = (regInput) : AppThunk => (dispatch) => {
-  axios
-    .post("/user/signup", regInput)
-    .then((resp) => dispatch(setUser(resp.data)))
-    .catch((err) => {
-      Alert.alert("Error", err.response.data.message);
-      console.log(err);
-    });
-};
-export const loginAction = (input): AppThunk  => (dispatch) => {
-  axios
-    .post("/user/login", input)
-    .then((resp) => dispatch(setUser(resp.data)))
-    .catch((err) => {
-      Alert.alert("Error", err.response.data.message);
-      console.log(err.response.data);
-    });
-};
-export const userCheckAction = (): AppThunk  => (dispatch) => {
+export const registrationAction =
+  (regInput): AppThunk =>
+  (dispatch) => {
+    axios
+      .post("/user/signup", regInput)
+      .then((resp) => dispatch(setUser(resp.data)))
+      .catch((err) => {
+        Alert.alert("Error", err.response.data.message);
+        console.log(err);
+      });
+  };
+export const loginAction =
+  (input): AppThunk =>
+  (dispatch) => {
+    axios
+      .post("/user/login", input)
+      .then((resp) => dispatch(setUser(resp.data)))
+      .catch((err) => {
+        Alert.alert("Error", err.response.data.message);
+        console.log(err.response.data);
+      });
+  };
+export const userCheckAction = (): AppThunk => (dispatch) => {
   axios
     .post("/user/check")
     .then((res) => dispatch(setUser(res.data)))

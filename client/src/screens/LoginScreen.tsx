@@ -23,7 +23,7 @@ import logo from "../../assets/logo.png"
 export default function LoginScreen({ navigation }) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.user);
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const LoginHandler = (email, hashpass) => {
     signInWithEmailAndPassword(auth, email, hashpass)
       .then(({ user }) => {
@@ -38,15 +38,15 @@ export default function LoginScreen({ navigation }) {
       .catch((error) => console.log(error));
     dispatch(loginAction({ email, hashpass }));
   };
-  const googleHandle = () => {
-    signInWithPopup(auth, provider).then((data) => {
-      setValue(data.user.email);
-      localStorage.setItem("email", data.user.email);
-    });
-    useEffect(() => {
-      setValue(localStorage.getItem("email"));
-    });
-  };
+  // const googleHandle = () => {
+  //   signInWithPopup(auth, provider).then((data) => {
+  //     setValue(data.user.email);
+  //     localStorage.setItem("email", data.user.email);
+  //   });
+  //   useEffect(() => {
+  //     setValue(localStorage.getItem("email"));
+  //   });
+  // };
 
   return (
     <TouchableWithoutFeedback
