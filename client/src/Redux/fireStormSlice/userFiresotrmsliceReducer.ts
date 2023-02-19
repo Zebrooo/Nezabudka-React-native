@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 
 const initialState = {
-  email: null,
-  token: null,
-  id: null,
+  email: '',
+  token: '',
+  id: '',
 };
 
 const userFirestormSlice = createSlice({
@@ -17,9 +17,9 @@ const userFirestormSlice = createSlice({
       state.id = action.payload.id;
     },
     removeUserFirestorm(state) {
-      state.email = null;
-      state.token = null;
-      state.id = null;
+      state.email = '';
+      state.token = '';
+      state.id = '';
     },
   },
 });
