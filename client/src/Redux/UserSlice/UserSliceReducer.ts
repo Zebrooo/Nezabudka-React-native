@@ -75,9 +75,9 @@ export const userCheckAction = (): AppThunk  => (dispatch) => {
     .catch(console.log);
 };
 
-export const userLogoutAction = () => (dispatch) => {
+export const userLogoutAction = (): AppThunk  => (dispatch) => {
   axios
     .get("/user/logout")
     .then(() => dispatch(logoutUser()))
     .catch(console.log);
-};
+}; 
