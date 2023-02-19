@@ -1,5 +1,5 @@
 const express = require("express");
-const { Event, User, CategoryShop } = require("../db/models");
+const { Event, User } = require("../db/models");
 
 const eventRouter = express.Router();
 
@@ -8,7 +8,7 @@ eventRouter
   .get(async (req, res) => {
     try {
       const allEvents = await Event.findAll({
-        include: [User, CategoryShop],
+        include: [User],
         order: [["date", "DESC"]],
       });
       return res.json(allEvents);
