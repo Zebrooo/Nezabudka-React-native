@@ -9,7 +9,7 @@ export default function Calendarik(): JSX.Element {
       <Calendar style={{ borderRadius: 10, elevation: 4, margin: 10 }} 
      onDayPress={date => console.log(date)}
      onMonthChange={()=> {}}
-     markedDates={{popiss}}
+    //  markedDates={{popiss}}
 
      />
     </View>

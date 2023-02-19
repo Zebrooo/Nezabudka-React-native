@@ -19,12 +19,12 @@ const homeName = 'Home';
 const newEventName = 'New Event';
 const profileName = 'Profile';
 const giftName = 'Gifts';
-
+const isAuth = true
 
 const Tab = createBottomTabNavigator();
 
 export default function MainContainer() {
-  const { isAuth } = useAuth();
+  // const { isAuth } = useAuth();
   return (
     <NavigationContainer>
       <Tab.Navigator
