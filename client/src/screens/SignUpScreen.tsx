@@ -1,7 +1,7 @@
 import { Formik } from "formik";
 import React from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase";
+import { auth, provider } from "../../config/firebase";
 import { Button, Image, Keyboard, SafeAreaView, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
@@ -13,9 +13,8 @@ import logo from "../../assets/logo.png"
 export default function SignUpScreen({ navigation }) {
   const dispatch = useAppDispatch();
   const user = useAppSelector((store) => store.user);
-  const SignUpHandler = (email, password, name): void => {
-    console.log({ email, password, name });
-    createUserWithEmailAndPassword(auth, email, password)
+  const SignUpHandler = (email, hashpass, username): void => {
+    createUserWithEmailAndPassword(auth, email, hashpass)
       .then(({ user }) => {
         console.log(user);
         dispatch(
@@ -27,7 +26,7 @@ export default function SignUpScreen({ navigation }) {
         );
       })
       .catch(console.error);
-    dispatch(registrationAction({ email, password, name }));
+    dispatch(registrationAction({ email, hashpass, username }));
   };
   return (
     <TouchableWithoutFeedback
