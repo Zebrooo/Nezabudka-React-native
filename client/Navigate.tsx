@@ -49,7 +49,7 @@ export default function MainContainer() {
           },
         })}
       >
-        {isAuth ? (
+        {!isAuth ? (
           <>
             <Tab.Screen name={homeName} component={HomeNavigator} />
             <Tab.Screen name={newEventName} component={NewEventNavigator} />
