@@ -1,5 +1,5 @@
 const express = require("express");
-const { Shop, User, CategoryShop } = require("../db/models");
+const { Shop, User, CategoryShop, Comment, Product } = require("../db/models");
 
 const shopRouter = express.Router();
 
@@ -10,7 +10,7 @@ shopRouter
   .get(async (req, res) => {
     try {
       const allShops = await Shop.findAll({
-        include: [User, CategoryShop]
+        include: [User, CategoryShop, Comment, Product]
       });
       return res.json(allShops);
     } catch (err) {

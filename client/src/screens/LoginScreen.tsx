@@ -24,8 +24,11 @@ export default function LoginScreen({ navigation }) {
               onChangeText={props.handleChange("hashpass")}
               value={props.values.hashpass}
             ></TextInput>
-            <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
+            <Button style={styles.botton} onPress={props.handleSubmit} title="Войти">
             <Text style={styles.textBtn}> Войти</Text>
+            </Button>
+            <TouchableOpacity  style={styles.botton} onPress={() => navigation.navigate('SignUpScreen')}>
+            <Text style={styles.textBtn}> Регистрация</Text>
             </TouchableOpacity>
           </View>
         )}
