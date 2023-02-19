@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userFiresotrmsliceReducer from "./fireStormSlice/userFiresotrmsliceReducer";
+import ShopSlice from "./ShopSlice/ShopSlice";
 import UserSliceReducer from "./UserSlice/UserSliceReducer";
 
 const store = configureStore({
   reducer: {
     user: UserSliceReducer,
     userFirestorm: userFiresotrmsliceReducer,
+    shops: ShopSlice,
   },
 });
 
