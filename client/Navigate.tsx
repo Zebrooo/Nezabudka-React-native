@@ -13,17 +13,18 @@ import SexPage from './src/screens/SexPage/SexPage';
 import ManPage from './src/screens/ManPage/ManPage';
 import WomenPage from './src/screens/WomenPage/WomenPage';
 import NewShopPage from './src/screens/NewShopPage';
+import { useAuth } from './src/Redux/fireStormSlice/userFiresotrmsliceReducer';
 
 const homeName = 'Home';
 const newEventName = 'New Event';
 const profileName = 'Profile';
 const giftName = 'Gifts';
 
-const isAuth = false;
 
 const Tab = createBottomTabNavigator();
 
 export default function MainContainer() {
+  const { isAuth } = useAuth();
   return (
     <NavigationContainer>
       <Tab.Navigator
@@ -100,7 +101,7 @@ const GiftStack = createStackNavigator();
 
 function GiftNavigator() {
   return (
-    <GiftStack.Navigator initialRouteName="ManPage">
+    <GiftStack.Navigator initialRouteName="SexPage">
       <GiftStack.Screen
         name="SexPage"
         component={SexPage}

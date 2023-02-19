@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import eventSliceReducer from "./eventSlice/EventSlice";
 import userFiresotrmsliceReducer from "./fireStormSlice/userFiresotrmsliceReducer";
+import ShopSlice from "./ShopSlice/ShopSlice";
 import UserSliceReducer from "./UserSlice/UserSliceReducer";
 
 const store = configureStore({
@@ -8,6 +9,7 @@ const store = configureStore({
     user: UserSliceReducer,
     userFirestorm: userFiresotrmsliceReducer,
     events: eventSliceReducer,
+    shops: ShopSlice,
   },
 });
 
