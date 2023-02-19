@@ -1,12 +1,24 @@
 import { signInWithEmailAndPassword } from "@firebase/auth";
-import { Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { auth, provider } from "../../config/firebase";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { loginAction } from "../Redux/UserSlice/UserSliceReducer";
 import { signInWithPopup } from "@firebase/auth";
+import { Formik } from "formik";
+import {
+  Button,
+  Image,
+  Keyboard,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
+import styles from "../styles/stylesall";
+import logo from "../../assets/logo.png"
 
 export default function LoginScreen({ navigation }) {
   const dispatch = useAppDispatch();
@@ -37,42 +49,54 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <View>
-      <Formik
-        initialValues={{ email: "", hashpass: "" }}
-        onSubmit={(values, { resetForm }) => {
-          LoginHandler(values.email, values.hashpass);
-          console.log(values);
-
-          resetForm({ values: "" });
-        }}
-      >
-        {(props) => (
-          <View>
-            <Text>Введите ваш логин</Text>
-            <TextInput
-              onChangeText={props.handleChange("email")}
-              value={props.values.email}
-            ></TextInput>
-            <Text>Введите ваш пароль</Text>
-            <TextInput
-              onChangeText={props.handleChange("hashpass")}
-              value={props.values.hashpass}
-            ></TextInput>
-            <Button title="login" onPress={props.handleSubmit}></Button>
-            <View>
-              {/* <TouchableOpacity onPress={googleHandle}>
-                <Text> ggole</Text>
-              </TouchableOpacity> */}
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+        ("dismiss keyboard");
+      }}
+    >
+      <SafeAreaView style={styles.main}>
+      <Image
+          source={logo}
+          style={{
+            marginTop: 40, width: '100%', height: 160, position: 'absolute', top: 0, resizeMode: 'cover',
+          }}
+        />
+        <Formik
+          initialValues={{ email: "", hashpass: "" }}
+          onSubmit={(values, { resetForm }) => {
+            LoginHandler(values.email, values.hashpass);
+            console.log(values);
+            resetForm({ values: "" });
+          }}
+        >
+          {(props) => (
+            <View style={{ marginTop: "60%", marginLeft: "17%" }}>
+              <TextInput
+              placeholder="Введите ваш логин"
+                keyboardType="email-address"
+                style={styles.input}
+                onChangeText={props.handleChange("email")}
+                value={props.values.email}
+              ></TextInput>
+              <TextInput
+              placeholder="Введите ваш пароль"
+                style={styles.input}
+                onChangeText={props.handleChange("hashpass")}
+                value={props.values.hashpass}
+              ></TextInput>
+              <Button title="Войти" style={styles.botton} onPress={props.handleSubmit}></Button>
+              <TouchableOpacity
+              style={styles.botton}
+                onPress={() => navigation.navigate("SignUpScreen")}
+              >
+                <Text style={styles.textBtn}>Ещё нет аккаунта?</Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("SignUpScreen")}
-            >
-              <Text> Don't have account?</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </Formik>
-    </View>
+          )}
+        </Formik>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
+    
   );
 }

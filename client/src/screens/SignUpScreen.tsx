@@ -2,11 +2,13 @@ import { Formik } from "formik";
 import React from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, provider } from "../../config/firebase";
-import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Button, Image, Keyboard, SafeAreaView, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
 import { registrationAction } from "../Redux/UserSlice/UserSliceReducer";
 import type { User } from "../Redux/UserSlice/UserType";
+import styles from "../styles/stylesall";
+import logo from "../../assets/logo.png"
 
 export default function SignUpScreen({ navigation }) {
   const dispatch = useAppDispatch();
@@ -27,7 +29,18 @@ export default function SignUpScreen({ navigation }) {
     dispatch(registrationAction({ email, hashpass, username }));
   };
   return (
-    <View>
+    <TouchableWithoutFeedback
+    onPress={() => {
+      Keyboard.dismiss();
+      ("dismiss keyboard");
+    }}>
+    <SafeAreaView style={styles.main}>
+    <Image
+          source={logo}
+          style={{
+            marginTop: 40, width: '100%', height: 160, position: 'absolute', top: 0, resizeMode: 'cover',
+          }}
+        />
       <Formik
         initialValues={{ email: "", hashpass: "", username: "" }}
         onSubmit={(values, { resetForm }) => {
@@ -36,31 +49,36 @@ export default function SignUpScreen({ navigation }) {
         }}
       >
         {(props) => (
-          <View>
-            <Text>Введите ваш логин</Text>
+          <View style={{ marginTop: "60%", marginLeft: "17%" }}>
             <TextInput
-              value={props.values.username}
+            placeholder="Введите ваш логин"
+              style={styles.input}
               onChangeText={props.handleChange("username")}
             ></TextInput>
-            <Text>Введите вашу почту</Text>
             <TextInput
-              value={props.values.email}
+            placeholder="Введите вашу почту"
+              keyboardType="email-address"
+              style={styles.input}
               onChangeText={props.handleChange("email")}
             ></TextInput>
-            <Text>Введите ваш пароль</Text>
             <TextInput
-              value={props.values.hashpass}
+            placeholder="Придумайте пароль"
+              style={styles.input}
               onChangeText={props.handleChange("hashpass")}
             ></TextInput>
-            <Button onPress={props.handleSubmit} title="Sign up"></Button>
+            <View style={styles.botton}>
+            <Button  style={styles.textBtn} onPress={props.handleSubmit} title="Sign up"></Button>
+            </View>
             <TouchableOpacity
+            style={styles.botton}
               onPress={() => navigation.navigate("SignInScreen")}
             >
-              <Text> Already have account?</Text>
+              <Text style={styles.textBtn}>Регистрация</Text>
             </TouchableOpacity>
           </View>
         )}
       </Formik>
-    </View>
+    </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }

@@ -1,10 +1,11 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import styles from '../../styles/stylesall';
 
 export default function WomenPage ({ navigation }) {
   return (
-    <View>
+    <View style={styles.main}>
       <Formik
         initialValues={{ email: '', hashpass: '', username: '' }}
         onSubmit={(values) => console.log(values)}
@@ -14,22 +15,22 @@ export default function WomenPage ({ navigation }) {
              <TouchableOpacity
               onPress={() => navigation.navigate('FlowerShopPage')}
             >
-              <Text>Цветы</Text>
+              <Text style={styles.text}>Цветы</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate('JeweleryShopPage')}
             >
-              <Text> Ювелирные украшения</Text>
+              <Text style={styles.text}> Ювелирные украшения</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate('GiftShopPage')}
             >
-              <Text> Простой подарок</Text>
+              <Text style={styles.text}> Простой подарок</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => navigation.navigate('CardShopPage')}
             >
-              <Text> Сертификаты</Text>
+              <Text style={styles.text}> Сертификаты</Text>
             </TouchableOpacity>
           </View>
         )}
