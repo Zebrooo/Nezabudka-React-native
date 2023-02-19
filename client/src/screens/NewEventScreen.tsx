@@ -1,12 +1,18 @@
 import { Formik } from "formik";
-import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { DatePickerIOS, DatePickerIOSBase, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import DateField from "react-native-datefield";
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import styles from "../styles/stylesall";
+import { useAppDispatch } from "../Redux/hooks";
 
 export default function NewEventScreen({ navigation }) {
   const date = new Date()
+  const [chosenDate, setChosenDate] = useState(date);
+  console.log(setChosenDate);
+  const dispatch = useAppDispatch();
+  
   return (
     <View style={styles.main}>
       <Formik
@@ -22,24 +28,25 @@ export default function NewEventScreen({ navigation }) {
               value={props.values.name}
             ></TextInput>
             <Text style={styles.text}>Выберите дату</Text>
+            {/* <RNDateTimePicker mode="date" /> */}
             <TextInputMask
-              placeholder="ГГГГ/ММ/ДД"
+              placeholder="ГГГГ-ММ-ДД"
               type={"datetime"}
               options={{
-                format: "YYYY/MM/DD",
+                format: "YYYY-MM-DD",
               }}
-              defaultValue={date}
               style={styles.input}
               value={props.values.date}
               onChangeText={props.handleChange("date")}
             />
-            <DateField onSubmit={(value) => console.log(value)} />
+              {/* <DatePickerIOS mode='date' date={chosenDate} onDateChange={setChosenDate} /> */}
+            {/* <DateField onSubmit={(value) => console.log(value)} />
 
             <DateField
               defaultValue={new Date()}
               styleInput={{ fontSize: 15 }}
               containerStyle={{ marginVertical: 20 }}
-            />
+            /> */}
             
             {/* <TextInput */}
             {/* dataDetectorTypes={'calendarEvent'} */}
@@ -60,7 +67,7 @@ export default function NewEventScreen({ navigation }) {
               style={styles.botton}
               onPress={() => navigation.navigate("MainPage")}
             >
-              <Text style={styles.text}> кнопка добавления</Text>
+              <Text style={styles.text}>Добавить</Text>
             </TouchableOpacity>
           </View>
         )}
