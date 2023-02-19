@@ -55,7 +55,7 @@ export const registrationAction = (regInput) : AppThunk => (dispatch) => {
     .post("/user/signup", regInput)
     .then((resp) => dispatch(setUser(resp.data)))
     .catch((err) => {
-      Alert.alert("Error", err.response.data.message);
+      // Alert.alert("Error", err.response.data.message);
       console.log(err);
     });
 };
@@ -64,7 +64,7 @@ export const loginAction = (input): AppThunk  => (dispatch) => {
     .post("/user/login", input)
     .then((resp) => dispatch(setUser(resp.data)))
     .catch((err) => {
-      Alert.alert("Error", err.response.data.message);
+      // Alert.alert("Error", err.response.data.message);
       console.log(err.response.data);
     });
 };
