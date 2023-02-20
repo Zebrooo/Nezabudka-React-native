@@ -73,7 +73,7 @@ export default function SignUpScreen({ navigation }) {
             style={styles.botton}
               onPress={() => navigation.navigate("SignInScreen")}
             >
-              <Text style={styles.textBtn}>Регистрация</Text>
+              <Text style={styles.textBtn}>Есть аккаунт?</Text>
             </TouchableOpacity>
           </View>
         )}
