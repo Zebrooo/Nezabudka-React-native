@@ -1,44 +1,34 @@
+import { ListItem } from '@react-native-material/core';
 import { Formik } from 'formik';
 import React from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { setCategory } from '../../Redux/ShopSlice/ShopSlice';
 import styles from '../../styles/stylesall';
 
-export default function WomenPage ({ navigation }) {
+export default function ManPage({ navigation }) {
+  const dispatch = useAppDispatch()
+  const categories = useAppSelector((state) => state.shops.categories).filter(
+    (c) => c.sex === 'unisex' || c.sex === 'man'
+  );
   return (
-    <View style={styles.main}>
-      <Formik
-        initialValues={{ email: '', hashpass: '', username: '' }}
-        onSubmit={(values) => console.log(values)}
-      >
-        {(props) => (
-          <View>
-             <TouchableOpacity
-             style={styles.botton}
-              onPress={() => navigation.navigate('ClockShopPage')}
-            >
-              <Text style={styles.text}>Часы</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-             style={styles.botton}
-              onPress={() => navigation.navigate('AutoShopPage')}
-            >
-              <Text style={styles.text}> Автомбильные акссесуары</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-             style={styles.botton}
-              onPress={() => navigation.navigate('GiftShopPage')}
-            >
-              <Text style={styles.text}> Простой подарок</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-             style={styles.botton}
-              onPress={() => navigation.navigate('CardShopPage')}
-            >
-              <Text style={styles.text}> Сертификаты</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </Formik>
-    </View>
+    <ScrollView>
+      {categories.map((category) => (
+        <ListItem
+          title={category.name}
+          onPress={() => {
+            navigation.navigate('ShopsByCategory')
+            dispatch(setCategory(category.id))
+          }}
+          key={category.id}
+        />
+      ))}
+    </ScrollView>
   );
 }

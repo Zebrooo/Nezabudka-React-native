@@ -1,37 +1,34 @@
-import { Formik } from "formik";
-import React, { useEffect } from "react";
+import { ListItem } from '@react-native-material/core';
+import { Formik } from 'formik';
+import React from 'react';
 import {
+  ScrollView,
+  Text,
   TextInput,
   TouchableOpacity,
   View,
-  ViewPagerAndroidBase,
-} from "react-native";
-import styles from "../../styles/stylesall";
-import { Avatar, Button, Card, Text } from "react-native-paper";
-import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
-import { loadShops } from "../../Redux/ShopSlice/ShopSlice";
+} from 'react-native';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { setCategory } from '../../Redux/ShopSlice/ShopSlice';
+import styles from '../../styles/stylesall';
 
 export default function WomenPage({ navigation }) {
-  const shops = useAppSelector((state) => state.shops.shops);
-  console.log(shops[0]);
-
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(loadShops());
-  }, []);
+  const dispatch = useAppDispatch()
+  const categories = useAppSelector((state) => state.shops.categories).filter(
+    (c) => c.sex === 'unisex' || c.sex === 'woman'
+  );
   return (
-    <View>
-      {shops.map((shop) => (
-        <Card>
-        <Card.Content>
-          <Text variant="titleLarge">{shop.name}</Text>
-        </Card.Content>
-        <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
-        <Card.Actions>
-          <Button>перейти к товарам</Button>
-        </Card.Actions>
-      </Card>
+    <ScrollView>
+      {categories.map((category) => (
+        <ListItem
+          title={category.name}
+          onPress={() => {
+            navigation.navigate('ShopsByCategory')
+            dispatch(setCategory(category.id))
+          }}
+          key={category.id}
+        />
       ))}
-    </View>
+    </ScrollView>
   );
 }
