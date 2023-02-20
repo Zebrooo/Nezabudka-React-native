@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { Button, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from '../../styles/stylesall';
+import PhotoProfilePage from './PhotoProfilePAge';
 
 export default function ProfilePage({ navigation }) {
   return (
@@ -12,6 +13,7 @@ export default function ProfilePage({ navigation }) {
       >
         {(props) => (
           <View>
+            <PhotoProfilePage />
             <Text style={styles.text}>уведомления</Text>
             <TextInput
             style={styles.input}
