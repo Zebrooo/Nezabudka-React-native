@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from '@firebase/auth';
+import { signInWithEmailAndPassword, signInWithRedirect } from '@firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth, provider } from '../../config/firebase';
 import { setUserFirestorm } from '../Redux/fireStormSlice/userFiresotrmsliceReducer';
@@ -39,7 +39,7 @@ export default function LoginScreen({ navigation }) {
     dispatch(loginAction({ email, hashpass }));
   };
   const googleHandle = () => {
-    signInWithPopup(auth, provider).then((data) => {
+    signInWithRedirect(auth, provider).then((data) => {
       setValue(data.user.email);
       localStorage.setItem('email', data.user.email);
     });
