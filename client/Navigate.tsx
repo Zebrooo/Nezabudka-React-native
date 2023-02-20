@@ -15,6 +15,7 @@ import WomenPage from './src/screens/WomenPage/WomenPage';
 import NewShopPage from './src/screens/NewShopPage';
 import { useAuth } from './src/Redux/fireStormSlice/userFiresotrmsliceReducer';
 import CommentPage from './src/screens/CommentPage/CommentPage';
+import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
 
 const homeName = 'Home';
 const newEventName = 'New Event';
@@ -80,6 +81,11 @@ function HomeNavigator() {
         component={MainPage}
         options={{ headerShown: false }}
       />
+       <HomeStack.Screen
+        name="SexPage"
+        component={SexPage}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
   );
 }
@@ -121,6 +127,11 @@ function GiftNavigator() {
       <GiftStack.Screen
         name="CommentPage"
         component={CommentPage}
+        options={{ headerShown: false }}
+      />
+      <GiftStack.Screen
+        name="ShopsByCategory"
+        component={ShopsByCategory}
         options={{ headerShown: false }}
       />
     </GiftStack.Navigator>

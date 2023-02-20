@@ -23,17 +23,27 @@ export const eventSlice = createSlice({
       ...state,
       events: state.events.filter((event) => event.id !== action.payload),
     }),
+    // editEvent: (state, action) => ({
+    //   ...state,
+    //   events: state.events.map((el) =>
+    //     el.id === action.payload
+    //       ? {
+    //           ...el,
+    //           name: action.payload.values.name,
+    //           date: action.payload.values.date,
+    //           comment: action.payload.values.comment,
+    //         }
+    //       : el
+    //   ),
+    // }),
   },
 });
 
 export const { visualEvent, addEvent, deleteEvent } = eventSlice.actions;
 
 export const visualEventsThunk = (): AppThunk => (dispatch) => {
-    try {
-        
-    } catch (error) {
-        
-    }
+  try {
+  } catch (error) {}
   axios<Event[]>("/event")
     .then((res) => dispatch(visualEvent(res.data)))
     .catch((err) => console.log("hi"));
