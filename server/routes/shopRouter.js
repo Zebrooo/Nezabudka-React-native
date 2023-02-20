@@ -10,7 +10,7 @@ shopRouter
   .get(async (req, res) => {
     try {
       const allShops = await Shop.findAll({
-        include: [User, CategoryShop, Comment, Product]
+        include: [User, CategoryShop, Comment]
       });
       return res.json(allShops);
     } catch (err) {

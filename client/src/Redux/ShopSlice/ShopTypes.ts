@@ -1,6 +1,9 @@
 export type ShopSliceState = {
   shops: Shop[];
   oneShop: Shop;
+  products: Product[];
+  categories: Category[];
+  categoryid: number;
 };
 
 export type Shop = {
@@ -11,7 +14,6 @@ export type Shop = {
   categoryid: number;
   userid: number;
   Comments: Comment[];
-  Products: Product[];
 };
 
 export type Comment = {
@@ -27,4 +29,10 @@ export type Product = {
   img: string;
   price: number;
   shopid: number;
+};
+
+export type Category = {
+  id: number;
+  sex: string;
+  name: string;
 };

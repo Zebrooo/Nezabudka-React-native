@@ -11,6 +11,10 @@ module.exports = {
       name: {
         type: Sequelize.TEXT,
       },
+      sex:{
+        type: Sequelize.TEXT,
+        defaultValue: 'unisex',
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

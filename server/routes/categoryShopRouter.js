@@ -1,14 +1,14 @@
-const express = require("express");
-const { CategoryShop } = require("../db/models");
+const express = require('express');
+const { CategoryShop } = require('../db/models');
 
 const categoryShopRouter = express.Router();
 
 categoryShopRouter
-  .route("/")
+  .route('/')
   .get(async (req, res) => {
     try {
       const allCategoryShops = await CategoryShop.findAll({
-        order: [["name", "ASC"]],
+        order: [['name', 'ASC']],
       });
       return res.json(allCategoryShops);
     } catch (err) {
