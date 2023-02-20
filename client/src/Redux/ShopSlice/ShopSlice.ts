@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import type { AppThunk } from '../hooks';
-import type { ShopSliceState, Shop, Product, Category } from './ShopTypes';
+import type { ShopSliceState, Shop, Product, Category, ShopFormInput } from './ShopTypes';
 
 const initialState: ShopSliceState = {
   shops: [],
@@ -13,6 +13,7 @@ const initialState: ShopSliceState = {
     geoteg: '',
     categoryid: 0,
     userid: 0,
+    img:'',
     Comments: [],
   },
   products: [],
@@ -24,6 +25,15 @@ export const shopsSlice = createSlice({
   name: 'shops',
   initialState,
   reducers: {
+    addShop: (state, action: PayloadAction<Shop>) => ({
+      ...state,
+      shops: [action.payload, ...state.shops],
+    }),
+    // addComment: (state, action: PayloadAction<Comment>) => ({
+    //   ...state,
+    //   oneShop: state.oneShop.Comments.push(action.payload),
+    // }),
+
     setCategory: (state, action: PayloadAction<number>) => ({
       ...state,
       categoryid: action.payload,
@@ -45,7 +55,7 @@ export const shopsSlice = createSlice({
   },
 });
 
-export const { getShops, getProducts, getCategories, setCategory} = shopsSlice.actions;
+export const { getShops, getProducts, getCategories, setCategory, addShop} = shopsSlice.actions;
 
 export const loadShops = (): AppThunk => (dispatch) => {
   try {
@@ -57,8 +67,18 @@ export const loadShops = (): AppThunk => (dispatch) => {
   }
 };
 
-export const loadProducts =
-  (id): AppThunk =>
+export const addNewShop = (formInput:ShopFormInput): AppThunk => (dispatch) => {
+  try {
+    axios.post('/shops', formInput).then((response) =>
+      dispatch(addShop(response.data))
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const loadProducts = 
+  (id: number): AppThunk =>
   (dispatch) => {
     try {
       axios<Product[]>(`/products/${id}`).then((response) =>

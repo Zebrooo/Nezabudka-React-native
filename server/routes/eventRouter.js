@@ -20,6 +20,9 @@ eventRouter
   .post(async (req, res) => {
     try {
       const { name, date, comment } = req.body;
+      console.log('====================================');
+      console.log(req.session.user.id);
+      console.log('====================================');
       await Event.create({
         name,
         date,

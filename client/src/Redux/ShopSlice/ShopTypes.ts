@@ -13,6 +13,7 @@ export type Shop = {
   geoteg: string;
   categoryid: number;
   userid: number;
+  img: string;
   Comments: Comment[];
 };
 
@@ -36,3 +37,11 @@ export type Category = {
   sex: string;
   name: string;
 };
+
+export type ShopFormInput= {
+  name: string;
+  http: string;
+  geoteg: string;
+  categoryid: number;
+  img: string;
+}
