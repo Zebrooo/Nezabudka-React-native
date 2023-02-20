@@ -50,7 +50,7 @@ export default function MainContainer() {
           },
         })}
       >
-        {isAuth ? (
+        {!isAuth ? (
           <>
             <Tab.Screen name={homeName} component={HomeNavigator} />
             <Tab.Screen name={newEventName} component={NewEventNavigator} />
@@ -77,6 +77,11 @@ function HomeNavigator() {
       <HomeStack.Screen
         name="HomeScreen"
         component={MainPage}
+        options={{ headerShown: false }}
+      />
+       <HomeStack.Screen
+        name="SexPage"
+        component={SexPage}
         options={{ headerShown: false }}
       />
     </HomeStack.Navigator>

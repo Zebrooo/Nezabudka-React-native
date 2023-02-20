@@ -35,5 +35,27 @@ eventRouter
       console.log(err);
     }
   });
+  eventRouter
+  .route("/:id")
+  .get(async (req, res) => {
+    const oneEvent = await Event.findOne({
+      where: { id: req.params.id },
+      include: User,
+    });
+    res.json(oneEvent);
+  })
+  .delete(async (req, res) => {
+    await Event.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
+  })
+  .patch(async (req, res) => {
+    const event = await Event.findByPk(req.params.id);
+    event.name = req.body.name;
+    event.date = req.body.date;
+    event.comment = req.body.comment;
+    event.save();
+    res.json(event);
+  });
+
 
 module.exports = eventRouter;
