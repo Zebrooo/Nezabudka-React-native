@@ -10,7 +10,7 @@ type OneEventPageProps = {
 
 export default function OneEventPage({event}: OneEventPageProps) {
   return (
-    <Card>
+    <Card style={{margin: 10}}>
     <Card.Content>
       <Text variant="titleLarge">{event.name}</Text>
       <Text variant="bodyMedium">{event.comment}</Text>
