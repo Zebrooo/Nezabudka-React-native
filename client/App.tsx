@@ -7,11 +7,11 @@ import store from "./src/Redux/store";
 import axios from "axios";
 import { useAppDispatch } from "./src/Redux/hooks";
 import { visualEventsThunk } from "./src/Redux/eventSlice/EventSlice";
+import AsyncStorage from '@react-native-community/async-storage';
 
-
-axios.defaults.baseURL = 'http://localhost:3001';
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "http://192.168.2.45:3001";
 export default function App() {
-
   LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>

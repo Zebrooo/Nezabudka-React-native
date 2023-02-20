@@ -19,14 +19,14 @@ export const eventSlice = createSlice({
     addEvent: (state, action: PayloadAction<Event>) => {
       state.events.push(action.payload);
     },
-    // deleteEvent: (state, action: PayloadAction<number>) => ({
-    //   ...state,
-    //   events: state.events.filter((event) => event.id !== action.payload),
-    // }),
+    deleteEvent: (state, action: PayloadAction<number>) => ({
+      ...state,
+      events: state.events.filter((event) => event.id !== action.payload),
+    }),
   },
 });
 
-export const { visualEvent, addEvent } = eventSlice.actions;
+export const { visualEvent, addEvent, deleteEvent } = eventSlice.actions;
 
 export const visualEventsThunk = (): AppThunk => (dispatch) => {
     try {
@@ -43,18 +43,18 @@ export const addEventThunk =
   (formInput: { title: string }): AppThunk =>
   (dispatch) => {
     axios
-      .post<Event>("/event/", formInput)
+      .post<Event>("/event", formInput)
       .then((res) => dispatch(addEvent(res.data)))
       .catch(console.log);
   };
 
-// export const deleteEventThunk =
-//   (id: number): AppThunk =>
-//   (dispatch) => {
-//     axios
-//       .delete<Event>(`/event/${id}`)
-//       .then(() => dispatch(deleteEvent(id)))
-//       .catch(console.log);
-//   };
+export const deleteEventThunk =
+  (id: number): AppThunk =>
+  (dispatch) => {
+    axios
+      .delete<Event>(`/event/${id}`)
+      .then(() => dispatch(deleteEvent(id)))
+      .catch(console.log);
+  };
 
 export default eventSlice.reducer;
