@@ -8,12 +8,18 @@ import OneEventPage from "./OneEventPage";
 
 export default function AllEventsPage() {
   const events = useAppSelector((store) => store?.events?.events);
-//   console.log(events);
+  const week = new Date().getMonth()+1
+  console.log(week);
+  
+  const sortedEvents = events
+    ?.map((e) => e)
+    .sort((a, b) => new Date(b?.date) - new Date(a?.date));
+
 
   return (
     <>
-      {events?.map((event) => (
-        <OneEventPage  event={event} key={event.id}/>
+      {sortedEvents?.filter((el) => new Date(el.date).getMonth()+1 === week)?.map((event) => (
+        <OneEventPage event={event} key={event.id} />
       ))}
     </>
   );

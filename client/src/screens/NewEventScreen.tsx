@@ -57,8 +57,8 @@ export default function NewEventScreen({ navigation }) {
               value={props.values.date}
               onChangeText={props.handleChange("date")}
             />
-              {/* <DatePickerIOS mode='date' date={chosenDate} onDateChange={setChosenDate} /> */}
-            {/* <DateField onSubmit={(value) => console.log(value)} />
+              {/* <DatePickerIOS mode='date' date={chosenDate} onDateChange={setChosenDate} />
+            <DateField onSubmit={(value) => console.log(value)} />
 
             <DateField
               defaultValue={new Date()}
