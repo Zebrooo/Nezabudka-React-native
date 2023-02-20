@@ -14,6 +14,7 @@ import ManPage from './src/screens/ManPage/ManPage';
 import WomenPage from './src/screens/WomenPage/WomenPage';
 import NewShopPage from './src/screens/NewShopPage';
 import { useAuth } from './src/Redux/fireStormSlice/userFiresotrmsliceReducer';
+import CommentPage from './src/screens/CommentPage/CommentPage';
 
 const homeName = 'Home';
 const newEventName = 'New Event';
@@ -50,7 +51,7 @@ export default function MainContainer() {
           },
         })}
       >
-        {isAuth ? (
+        {!isAuth ? (
           <>
             <Tab.Screen name={homeName} component={HomeNavigator} />
             <Tab.Screen name={newEventName} component={NewEventNavigator} />
@@ -115,6 +116,11 @@ function GiftNavigator() {
       <GiftStack.Screen
         name="WomenPage"
         component={WomenPage}
+        options={{ headerShown: false }}
+      />
+      <GiftStack.Screen
+        name="CommentPage"
+        component={CommentPage}
         options={{ headerShown: false }}
       />
     </GiftStack.Navigator>
