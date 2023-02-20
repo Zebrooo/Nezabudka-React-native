@@ -12,6 +12,11 @@ export default function NewEventScreen({ navigation }) {
   const [chosenDate, setChosenDate] = useState(date);
   console.log(setChosenDate);
   const dispatch = useAppDispatch();
+
+  const [input, setInput] = useState({
+    name: "", date: "", comment: ""
+  });
+  console.log(input);
   
   return (
     <View style={styles.main}>
