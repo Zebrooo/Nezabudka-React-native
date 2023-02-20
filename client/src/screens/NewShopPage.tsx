@@ -1,42 +1,30 @@
-import { Formik } from 'formik';
-import React from 'react';
-import { Button, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import styles from '../styles/stylesall';
+import React, { useState, useEffect } from 'react';
+import { Button, Image, View, Platform } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
-export default function NewShopPage({ navigation }) {
+export default function ImagePickerExample() {
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
+    }
+  };
+
   return (
-    <View style={styles.main}>
-      <Formik
-        initialValues={{ email: '', hashpass: '', username: '' }}
-        onSubmit={(values) => console.log(values)}
-      >
-        {(props) => (
-          <View>
-            <Text style={styles.text}>Название магазинаa</Text>
-            <TextInput
-            style={styles.input}
-              onChangeText={props.handleChange('email')}
-              value={props.values.email}
-            ></TextInput>
-            <Text style={styles.text}>Ссылка на сайт(если он есть)</Text>
-            <TextInput
-            style={styles.input}
-              onChangeText={props.handleChange('hashpass')}
-              value={props.values.hashpass}
-            ></TextInput>
-            <Text style={styles.text}>Адрес магазниа</Text>
-            <TextInput
-            style={styles.input}
-              onChangeText={props.handleChange('hashpass')}
-              value={props.values.hashpass}
-            ></TextInput>
-            {/* <ScrollView ref={Refs.setRef('scroll')}></ScrollView> */}
-            <TouchableOpacity onPress={() => navigation.navigate('NewProductPage')}>
-              <Text style={styles.text}> Добавить товар </Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </Formik>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Pick an image from camera roll" onPress={pickImage} />
+      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
     </View>
   );
 }

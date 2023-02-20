@@ -20,7 +20,7 @@ export default function ProfilePage({ navigation }) {
               onChangeText={props.handleChange('email')}
               value={props.values.email}
             ></TextInput>
-            <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('NewShopPage')}>
               <Text style={styles.text}> Добавить фото </Text>
             </TouchableOpacity>
           </View>

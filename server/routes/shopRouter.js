@@ -20,11 +20,13 @@ shopRouter
   })
   .post(async (req, res) => {
     try {
-      const { name, http, geoteg } = req.body;
+      const { name, http, geoteg, categoryid, img } = req.body;
       await Shop.create({
         name,
         http,
         geoteg,
+        categoryid,
+        img,
         userid: req.session.user.id,
       });
       const sendShop = await Shop.findOne({

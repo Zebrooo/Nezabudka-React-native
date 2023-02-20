@@ -31,6 +31,9 @@ module.exports = {
           key: 'id',
         }
       },
+      img: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
