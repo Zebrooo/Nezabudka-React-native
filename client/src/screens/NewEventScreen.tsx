@@ -1,11 +1,13 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
-import { DatePickerIOS, DatePickerIOSBase, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { DatePickerIOS, DatePickerIOSBase, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import DateField from "react-native-datefield";
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import styles from "../styles/stylesall";
 import { useAppDispatch } from "../Redux/hooks";
+import { addEventThunk } from "../Redux/eventSlice/EventSlice";
+import { Button } from "react-native-paper";
 
 export default function NewEventScreen({ navigation }) {
   const date = new Date()
@@ -16,13 +18,24 @@ export default function NewEventScreen({ navigation }) {
   const [input, setInput] = useState({
     name: "", date: "", comment: ""
   });
-  console.log(input);
-  
+  console.log(setInput);
+   
+  const addEventHandler = (name, date, comment) => {
+    if (name.length > 0 && date.length > 0) {
+      dispatch(addEventThunk({name, date, comment}))
+      navigation.navigate('HomeScreen')
+    }
+  }
   return (
+    <KeyboardAvoidingView
+    behavior="padding">
     <View style={styles.main}>
       <Formik
         initialValues={{ name: "", date: "", comment: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values, { resetForm }) => {
+          addEventHandler(values.name, values.date, values.comment);
+          resetForm({ values: "" });
+        }}
       >
         {(props) => (
           <View style={{ marginTop: "40%", marginLeft: "17%" }}>
@@ -68,9 +81,10 @@ export default function NewEventScreen({ navigation }) {
               onChangeText={props.handleChange("comment")}
               value={props.values.comment}
             ></TextInput>
+            {/* <Button  onPress={props.handleSubmit} title="Добавить"></Button> */}
             <TouchableOpacity
               style={styles.botton}
-              onPress={() => navigation.navigate("MainPage")}
+              onPress={props.handleSubmit}
             >
               <Text style={styles.text}>Добавить</Text>
             </TouchableOpacity>
@@ -78,5 +92,6 @@ export default function NewEventScreen({ navigation }) {
         )}
       </Formik>
     </View>
+    </KeyboardAvoidingView>
   );
 }
