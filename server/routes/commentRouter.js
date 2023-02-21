@@ -20,6 +20,9 @@ commentRouter
   })
   .post(async (req, res) => {
     try {
+      console.log('====================================');
+      console.log(req.body, req.session.user);
+      console.log('====================================');
       const { body, stars } = req.body;
      const comment = await Comment.create({
         body,
