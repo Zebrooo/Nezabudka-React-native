@@ -7,13 +7,9 @@ import { loadCategories, loadShops } from '../../Redux/ShopSlice/ShopSlice';
 import styles from '../../styles/stylesall';
 
 export default function SexPage({ navigation }) {
-  const shops = useAppSelector((state) => state.shops.shops);
-  const categories= useAppSelector((state) => state.shops.shops);
-
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(loadShops());
-    dispatch(loadCategories())
   }, []);
   return (
     <>
@@ -21,9 +17,9 @@ export default function SexPage({ navigation }) {
         title="Подарки для женщин"
         onPress={() => navigation.navigate('WomenPage')}
       />
-      <ListItem 
-      title="Подарки для мужчин"
-      onPress={() => navigation.navigate('ManPage')}
+      <ListItem
+        title="Подарки для мужчин"
+        onPress={() => navigation.navigate('ManPage')}
       />
     </>
   );

@@ -6,10 +6,9 @@ const productRouter = express.Router();
 // categoryid нужно подумать как в post добавить
 
 productRouter
-  .route('/:id')
+  .route('/')
   .get(async (req, res) => {
     try {
-      const { id } = req.params;
       const allProducts = await Product.findAll({
         where: { shopid: id },
       });
@@ -19,23 +18,19 @@ productRouter
       return res.sendStatus(500);
     }
   })
-//   .post(async (req, res) => {
-//     try {
-//       const { name, http, geoteg } = req.body;
-//       await Shop.create({
-//         name,
-//         http,
-//         geoteg,
-//         userid: req.session.user.id,
-//       });
-//       const sendShop = await Shop.findOne({
-//         where: req.body,
-//         include: [User, CategoryShop],
-//       });
-//       res.json(sendShop);
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   });
+  .post(async (req, res) => {
+    try {
+      const { name, price, img, shopid } = req.body;
+      const product = await Product.create({
+        name,
+        price,
+        img,
+        shopid,
+      });
+      res.json(product);
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 module.exports = productRouter;

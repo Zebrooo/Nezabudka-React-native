@@ -40,6 +40,10 @@ export const shopsSlice = createSlice({
       ...state,
       products: [action.payload, ...state.products],
     }),
+    setShop: (state, action: PayloadAction<Shop>) => ({
+      ...state,
+      oneShop: action.payload,
+    }),
     // addComment: (state, action: PayloadAction<Comment>) => ({
     //   ...state,
     //   oneShop: state.oneShop.Comments.push(action.payload),
@@ -73,6 +77,7 @@ export const {
   setCategory,
   addShop,
   addProduct,
+  setShop,
 } = shopsSlice.actions;
 
 export const loadShops = (): AppThunk => (dispatch) => {
@@ -89,22 +94,22 @@ export const addNewShop =
   (formInput: ShopFormInput): AppThunk =>
   (dispatch) => {
     try {
-      axios
-        .post('/products', formInput)
-        .then((response) => dispatch(addProduct(response.data)));
+      axios.post('/shops', formInput).then((response) => {
+        dispatch(addShop(response.data));
+        dispatch(setShop(response.data));
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-
-  export const addNewProduct =
+export const addNewProduct =
   (formInput: ProductFormInput): AppThunk =>
   (dispatch) => {
     try {
       axios
-        .post('/shops', formInput)
-        .then((response) => dispatch(addShop(response.data)));
+        .post('/products', formInput)
+        .then((response) => dispatch(addProduct(response.data)));
     } catch (error) {
       console.log(error);
     }
