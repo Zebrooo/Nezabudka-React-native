@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import { AppThunk } from "../hooks";
 import { User } from "../UserSlice/UserType";
 
-const initialState = { name: "", email: "", token: "" };
+const initialState = { name: "", email: "", token: "", avatar: '' };
 
 const userSlice = createSlice({
   name: "user",
@@ -31,6 +31,10 @@ const userSlice = createSlice({
           : user
       );
     },
+//     addAvatar(state, action) {
+//       return ({...state,
+// state.avatar = action.payload.avatar;})
+//     }
   },
 });
 
