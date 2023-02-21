@@ -4,20 +4,21 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
-import SignUpScreen from "./src/screens/SignUpScreen";
-import LoginScreen from "./src/screens/LoginScreen";
-import MainPage from "./src/screens/MainPage";
-import NewEventScreen from "./src/screens/NewEventScreen";
-import ProfilePage from "./src/screens/ProfilePage/ProfilePage";
-import SexPage from "./src/screens/SexPage/SexPage";
-import ManPage from "./src/screens/ManPage/ManPage";
-import WomenPage from "./src/screens/WomenPage/WomenPage";
-import NewShopPage from "./src/screens/NewShopPage";
-import { useAuth } from "./src/Redux/fireStormSlice/userFiresotrmsliceReducer";
-import CommentPage from "./src/screens/CommentPage/CommentPage";
-import ShopsByCategory from "./src/screens/ShopsByCategory/ShopsByCategory";
-import PhotoProfilePage from "./src/screens/ProfilePage/PhotoProfilePAge";
-import NewProductPage from "./src/screens/NewProductPage/NewProductPage";
+import SignUpScreen from './src/screens/SignUpScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import MainPage from './src/screens/MainPage';
+import NewEventScreen from './src/screens/NewEventScreen';
+import ProfilePage from './src/screens/ProfilePage/ProfilePage';
+import SexPage from './src/screens/SexPage/SexPage';
+import ManPage from './src/screens/ManPage/ManPage';
+import WomenPage from './src/screens/WomenPage/WomenPage';
+import NewShopPage from './src/screens/NewShopPage';
+import { useAuth } from './src/Redux/fireStormSlice/userFiresotrmsliceReducer';
+import CommentPage from './src/screens/CommentPage/CommentPage';
+import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
+import PhotoProfilePage from './src/screens/ProfilePage/PhotoProfilePAge';
+import NewProductPage from './src/screens/NewProductPage/NewProductPage';
+import ProductsPage from './src/screens/ProductsPage/ProductsPage';
 
 const homeName = "Home";
 const newEventName = "New Event";
@@ -134,6 +135,11 @@ function GiftNavigator() {
       <GiftStack.Screen
         name="ShopsByCategory"
         component={ShopsByCategory}
+        options={{ headerShown: false }}
+      />
+       <GiftStack.Screen
+        name="ProductsPage"
+        component={ProductsPage}
         options={{ headerShown: false }}
       />
     </GiftStack.Navigator>

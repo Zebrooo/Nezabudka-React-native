@@ -34,7 +34,7 @@ export default function NewProductPage({ navigation }) {
     <View style={styles.main}>
       <Formik
         initialValues={{ name: '', price: '', img: '' }}
-        onSubmit={(values) => dispatch(addNewProduct({...values, shopid: shop.id}))}
+        onSubmit={(values) => dispatch(addNewProduct({...values, shopid: shop.id, img: image}))}
       >
         {(props) => (
           <View>

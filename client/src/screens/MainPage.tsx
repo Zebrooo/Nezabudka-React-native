@@ -19,6 +19,7 @@ export default function MainPage() {
     <ScrollView style={styles.main}>
       <Calendarik
       />
+      {/* <AgendaPage /> */}
       <View style={{ marginTop: "10%", marginLeft: "17%" }}>
         <Text style={styles.text}>ближайший список событий</Text>
       </View>
