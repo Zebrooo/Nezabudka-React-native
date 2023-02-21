@@ -9,6 +9,7 @@ import type {
   Category,
   ShopFormInput,
   ProductFormInput,
+  Comment,
 } from './ShopTypes';
 
 const initialState: ShopSliceState = {
@@ -44,10 +45,11 @@ export const shopsSlice = createSlice({
       ...state,
       oneShop: action.payload,
     }),
-    // addComment: (state, action: PayloadAction<Comment>) => ({
-    //   ...state,
-    //   oneShop: state.oneShop.Comments.push(action.payload),
-    // }),
+    
+    addComment: (state, action: PayloadAction<Comment>) => ({
+      ...state,
+      oneShop: {...state.oneShop, Comments: [action.payload, ...state.oneShop.Comments]}
+    }),
 
     setCategory: (state, action: PayloadAction<number>) => ({
       ...state,
@@ -78,6 +80,7 @@ export const {
   addShop,
   addProduct,
   setShop,
+  addComment
 } = shopsSlice.actions;
 
 export const loadShops = (): AppThunk => (dispatch) => {
@@ -136,4 +139,14 @@ export const loadCategories = (): AppThunk => (dispatch) => {
     console.log(error);
   }
 };
+
+export const addNewComment = (comment:Comment): AppThunk => (dispatch) => {
+  try {
+    axios
+    .post(`/comments/shop/${comment.shopid}`, comment)
+    .then((response) => dispatch(addComment(response.data)));
+  } catch (error) {
+    console.log(error);
+  }
+}
 export default shopsSlice.reducer;

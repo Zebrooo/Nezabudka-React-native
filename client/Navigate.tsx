@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 import SignUpScreen from './src/screens/SignUpScreen';
 import LoginScreen from './src/screens/LoginScreen';
@@ -18,11 +18,13 @@ import CommentPage from './src/screens/CommentPage/CommentPage';
 import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
 import PhotoProfilePage from './src/screens/ProfilePage/PhotoProfilePAge';
 import NewProductPage from './src/screens/NewProductPage/NewProductPage';
+import ProductsPage from './src/screens/ProductsPage/ProductsPage';
+import AllComments from "./src/screens/CommentPage/AllComments";
 
-const homeName = 'Home';
-const newEventName = 'New Event';
-const profileName = 'Profile';
-const giftName = 'Gifts';
+const homeName = "Home";
+const newEventName = "New Event";
+const profileName = "Profile";
+const giftName = "Gifts";
 // const isAuth = true
 
 const Tab = createBottomTabNavigator();
@@ -39,16 +41,16 @@ export default function MainContainer() {
             let rn = route.name;
 
             if (rn === homeName) {
-              iconName = focused ? 'home' : 'home-outline';
+              iconName = focused ? "home" : "home-outline";
               return <Ionicons name={iconName} size={size} color={color} />;
             } else if (rn === newEventName) {
-              iconName = focused ? 'ios-add-circle' : 'ios-add-circle-outline';
+              iconName = focused ? "ios-add-circle" : "ios-add-circle-outline";
               return <Ionicons name={iconName} size={size} color={color} />;
             } else if (rn === giftName) {
-              iconName = focused ? 'gift' : 'gift-outline';
+              iconName = focused ? "gift" : "gift-outline";
               return <Ionicons name={iconName} size={size} color={color} />;
             } else if (rn === profileName) {
-              iconName = focused ? 'user-circle' : 'user-circle-o';
+              iconName = focused ? "user-circle" : "user-circle-o";
               return <FontAwesome name={iconName} size={size} color={color} />;
             }
           },
@@ -83,7 +85,7 @@ function HomeNavigator() {
         component={MainPage}
         options={{ headerShown: false }}
       />
-       <HomeStack.Screen
+      <HomeStack.Screen
         name="SexPage"
         component={SexPage}
         options={{ headerShown: false }}
@@ -127,13 +129,18 @@ function GiftNavigator() {
         options={{ headerShown: false }}
       />
       <GiftStack.Screen
-        name="CommentPage"
-        component={CommentPage}
+        name="AllComments"
+        component={AllComments}
         options={{ headerShown: false }}
       />
       <GiftStack.Screen
         name="ShopsByCategory"
         component={ShopsByCategory}
+        options={{ headerShown: false }}
+      />
+       <GiftStack.Screen
+        name="ProductsPage"
+        component={ProductsPage}
         options={{ headerShown: false }}
       />
     </GiftStack.Navigator>

@@ -7,7 +7,9 @@ import store from "./src/Redux/store";
 import axios from "axios";
 import { useAppDispatch } from "./src/Redux/hooks";
 import { visualEventsThunk } from "./src/Redux/eventSlice/EventSlice";
-
+import CommentPage from "./src/screens/CommentPage/CommentPage";
+import NotificationScreen from "./src/screens/Notifications/NotificationScreen";
+import AllComments from "./src/screens/CommentPage/AllComments";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "http://192.168.2.45:3001";

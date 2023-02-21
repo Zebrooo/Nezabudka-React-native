@@ -18,7 +18,7 @@ export type Shop = {
 };
 
 export type Comment = {
-  id: number;
+  id?: number;
   body: string;
   stars: number;
   userid: number;
