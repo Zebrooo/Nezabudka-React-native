@@ -30,6 +30,9 @@ commentRouter
         userid: req.session.user.id,
         shopid: req.params.id
       });
+      console.log('====================================');
+      console.log(comment);
+      console.log('====================================');
       res.json(comment);
     } catch (err) {
       console.log(err);

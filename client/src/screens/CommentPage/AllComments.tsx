@@ -13,6 +13,15 @@ export default function AllComments() {
   const shop = useAppSelector((state) => state.shops.oneShop);
 
   const SubmitHandler = () => {
+    const obj = {
+      body: input,
+      stars: number,
+      shopid: shop.id,
+      userid: user,
+    }
+    console.log('====================================');
+    console.log(obj);
+    console.log('====================================');
     dispatch(
       addNewComment({
         body: input,
@@ -31,7 +40,7 @@ export default function AllComments() {
         <CommentPage comment={comment} key={comment.id} />
       ))}
       <TextInput
-        onChange={(e) => setInput(e.target.value)}
+        onChangeText={newText => setInput(newText)}
         value={input}
       ></TextInput>
       <AirbnbRating
