@@ -143,7 +143,7 @@ export const loadCategories = (): AppThunk => (dispatch) => {
 export const addNewComment = (comment:Comment): AppThunk => (dispatch) => {
   try {
     axios
-    .post(`/shop/${comment.id}`, comment)
+    .post(`/comments/shop/${comment.shopid}`, comment)
     .then((response) => dispatch(addComment(response.data)));
   } catch (error) {
     console.log(error);
