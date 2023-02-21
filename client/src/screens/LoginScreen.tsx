@@ -38,15 +38,15 @@ export default function LoginScreen({ navigation }) {
       .catch((error) => console.log(error));
     dispatch(loginAction({ email, hashpass }));
   };
-  const googleHandle = () => {
-    signInWithRedirect(auth, provider).then((data) => {
-      setValue(data.user.email);
-      localStorage.setItem('email', data.user.email);
-    });
-    useEffect(() => {
-      setValue(localStorage.getItem('email'));
-    });
-  };
+  // const googleHandle = () => {
+  //   signInWithRedirect(auth, provider).then((data) => {
+  //     setValue(data.user.email);
+  //     localStorage.setItem('email', data.user.email);
+  //   });
+  //   useEffect(() => {
+  //     setValue(localStorage.getItem('email'));
+  //   });
+  // };
 
   return (
     <TouchableWithoutFeedback
@@ -95,11 +95,11 @@ export default function LoginScreen({ navigation }) {
                 style={styles.botton}
                 onPress={props.handleSubmit}
               ></Button>
-              <Button
+              {/* <Button
                 title="Gogl"
                 style={styles.botton}
                 onPress={googleHandle}
-              ></Button>
+              ></Button> */}
               <TouchableOpacity
                 style={styles.botton}
                 onPress={() => navigation.navigate('SignUpScreen')}

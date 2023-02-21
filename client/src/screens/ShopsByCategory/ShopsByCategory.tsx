@@ -22,7 +22,7 @@ export default function ShopsByCategory({ navigation }) {
             </Card.Content>
             <Card.Cover source={{ uri: shop.img }} />
             <Card.Actions>
-              <Button>перейти к товарам</Button>
+              <Button onPress={()=> navigation.navigate('ProductsPage')}>перейти к товарам</Button>
             </Card.Actions>
           </Card>
         ))}
