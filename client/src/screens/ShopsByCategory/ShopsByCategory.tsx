@@ -30,6 +30,14 @@ export default function ShopsByCategory({ navigation }) {
               >
                 перейти к товарам
               </Button>
+              <Button
+                onPress={() => {
+                  navigation.navigate('AllComments');
+                  dispatch(setShop(shop));
+                }}
+              >
+                комментарии
+              </Button>
             </Card.Actions>
           </Card>
         ))}

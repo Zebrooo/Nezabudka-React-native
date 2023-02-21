@@ -4,7 +4,7 @@ import { Alert } from "react-native";
 import { AppThunk } from "../hooks";
 import { User } from "../UserSlice/UserType";
 
-const initialState = { name: "", email: "", token: "", avatar: '' };
+const initialState = { name: "", email: "", token: "", avatar: '', id:0 };
 
 const userSlice = createSlice({
   name: "user",

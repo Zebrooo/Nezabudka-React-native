@@ -19,6 +19,7 @@ import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
 import PhotoProfilePage from './src/screens/ProfilePage/PhotoProfilePAge';
 import NewProductPage from './src/screens/NewProductPage/NewProductPage';
 import ProductsPage from './src/screens/ProductsPage/ProductsPage';
+import AllComments from "./src/screens/CommentPage/AllComments";
 
 const homeName = "Home";
 const newEventName = "New Event";
@@ -128,8 +129,8 @@ function GiftNavigator() {
         options={{ headerShown: false }}
       />
       <GiftStack.Screen
-        name="CommentPage"
-        component={CommentPage}
+        name="AllComments"
+        component={AllComments}
         options={{ headerShown: false }}
       />
       <GiftStack.Screen
