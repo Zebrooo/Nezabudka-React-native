@@ -27,10 +27,8 @@ export default function ProfilePage({ navigation }) {
               onChangeText={props.handleChange("email")}
               value={props.values.email}
             ></TextInput>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("NewShopPage")}
-            >
-              <Text style={styles.text}> Добавить фото </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('NewShopPage')}>
+              <Text style={styles.text}> Добавить Магазин</Text>
             </TouchableOpacity>
             <Button
               icon="camera"
