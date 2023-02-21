@@ -17,6 +17,7 @@ import { useAuth } from './src/Redux/fireStormSlice/userFiresotrmsliceReducer';
 import CommentPage from './src/screens/CommentPage/CommentPage';
 import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
 import PhotoProfilePage from './src/screens/ProfilePage/PhotoProfilePAge';
+import NewProductPage from './src/screens/NewProductPage/NewProductPage';
 
 const homeName = 'Home';
 const newEventName = 'New Event';
@@ -53,7 +54,7 @@ export default function MainContainer() {
           },
         })}
       >
-        {isAuth ? (
+        {!isAuth ? (
           <>
             <Tab.Screen name={homeName} component={HomeNavigator} />
             <Tab.Screen name={newEventName} component={NewEventNavigator} />
@@ -157,6 +158,11 @@ function ProfileNavigator() {
       <ProfileStack.Screen
         name="PhotoProfilePage"
         component={PhotoProfilePage}
+        options={{ headerShown: false }}
+      />
+      <ProfileStack.Screen
+        name="NewProductPage"
+        component={NewProductPage}
         options={{ headerShown: false }}
       />
     </ProfileStack.Navigator>
