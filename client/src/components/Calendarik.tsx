@@ -21,6 +21,7 @@ export default function Calendarik(): JSX.Element {
         onMonthChange={() => {}}
         markedDates={calendarDate}
       />
+      
     </View>
   );
 }
