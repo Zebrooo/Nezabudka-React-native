@@ -38,10 +38,17 @@ export type Category = {
   name: string;
 };
 
-export type ShopFormInput= {
+export type ShopFormInput = {
   name: string;
   http: string;
   geoteg: string;
   categoryid: number;
   img: string;
-}
+};
+
+export type ProductFormInput = {
+  name: string;
+  img: string;
+  price: string;
+  shopid: number;
+};

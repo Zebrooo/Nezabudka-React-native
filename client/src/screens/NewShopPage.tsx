@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import * as ImagePicker from "expo-image-picker";
-import { useAppDispatch, useAppSelector } from "../Redux/hooks";
-import { addNewShop } from "../Redux/ShopSlice/ShopSlice";
-import { Card, Text, TextInput } from "react-native-paper";
-import { TouchableOpacity, View, Button, Picker } from "react-native";
-import { Formik } from "formik";
-import styles from "../styles/stylesall";
-import { useNavigation } from "@react-navigation/native";
+import React, { useState, useEffect } from 'react';
+import * as ImagePicker from 'expo-image-picker';
+import { useAppDispatch, useAppSelector } from '../Redux/hooks';
+import { addNewShop } from '../Redux/ShopSlice/ShopSlice';
+import { Card, Text, TextInput } from 'react-native-paper';
+import { TouchableOpacity, View, Button } from 'react-native';
+import { Formik } from 'formik';
+import styles from '../styles/stylesall';
+import { useNavigation } from '@react-navigation/native';
+import { Picker } from '@react-native-picker/picker';
 
 export default function ImagePickerExample() {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const categories = useAppSelector((store) => store.shops.categories);
@@ -25,49 +26,49 @@ export default function ImagePickerExample() {
 
     if (!result.canceled) {
       setImage(result.assets[0].uri);
-      console.log(result, result.assets[0].uri);
-      dispatch(
-        addNewShop({
-          name: "asda",
-          http: "sdfa",
-          geoteg: "string",
-          categoryid: 4,
-          img: result.assets[0].uri,
-        })
-      );
     }
   };
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(0);
 
   return (
     <View style={styles.main}>
       <Formik
-        initialValues={{ name: "", http: "", geoteg: "", categoryid: 0 }}
-        onSubmit={(values) => console.log(values)}
+        initialValues={{ name: '', http: '', geoteg: '', categoryid: 0 }}
+        onSubmit={(values) => {
+          console.log('====================================');
+          console.log( {...values, categoryid: selectedValue, img: image });
+          console.log('====================================');
+          dispatch(
+            addNewShop({ ...values, categoryid: selectedValue, img: image })
+          );
+        }}
       >
         {(props) => (
           <View>
             <View>
-              <Text style={styles.text}>Название товара</Text>
+              <Text style={styles.text}>Название магазина</Text>
               <TextInput
                 style={styles.input}
-                onChangeText={props.handleChange("name")}
+                onChangeText={props.handleChange('name')}
                 value={props.values.name}
               ></TextInput>
+              <Text style={styles.text}>Ссылка на сайт</Text>
               <TextInput
                 style={styles.input}
-                onChangeText={props.handleChange("http")}
+                onChangeText={props.handleChange('http')}
                 value={props.values.http}
               ></TextInput>
+              <Text style={styles.text}>Геотег</Text>
               <TextInput
                 style={styles.input}
-                onChangeText={props.handleChange("geoteg")}
+                onChangeText={props.handleChange('geoteg')}
                 value={props.values.geoteg}
               ></TextInput>
-              <View style={styles.container}>
+              <View>
+                <Text style={styles.text}>Категория</Text>
                 <Picker
                   selectedValue={selectedValue}
-                  style={{ height: 50, width: 150 }}
+                  style={{ height: 50, width: 400, marginBottom: 200 }}
                   onValueChange={(itemValue, itemIndex) =>
                     setSelectedValue(itemValue)
                   }
@@ -76,16 +77,13 @@ export default function ImagePickerExample() {
                     <Picker.Item label={category.name} value={category.id} />
                   ))}
                 </Picker>
+                <Button title="Добавить фото магазина" onPress={pickImage} />
                 <Button
-                  title="Pick an image from camera roll"
-                  onPress={pickImage}
-                />
-                <Button
-                  title="Добавить фото товаров"
+                  title="Добавить Магазин"
                   style={styles.botton}
                   onPress={() => {
                     props.handleSubmit();
-                    navigation.navigate("NewProductPage");
+                    navigation.navigate('NewProductPage');
                   }}
                 ></Button>
               </View>
