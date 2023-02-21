@@ -10,7 +10,7 @@ import { visualEventsThunk } from "./src/Redux/eventSlice/EventSlice";
 
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://192.168.2.128:3001";
+axios.defaults.baseURL = "http://192.168.2.45:3001";
 export default function App() {
   LogBox.ignoreAllLogs();
   return (

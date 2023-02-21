@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
 import type { Event } from '../../Redux/eventSlice/EventType';
 import { deleteEventThunk } from "../../Redux/eventSlice/EventSlice";
 import { useNavigation } from "@react-navigation/native";
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 type OneEventPageProps = {
     event: Event;
@@ -18,12 +20,12 @@ type OneEventPageProps = {
     <Card style={{margin: 10}}>
     <Card.Content>
       <Text variant="titleLarge">{event.name}</Text>
-      <Text variant="bodyMedium">{event.comment}</Text>
       <Text variant="bodyMedium">{dateRU}</Text>
+      <Text variant="bodyMedium">{event.comment}</Text>
     </Card.Content>
-    <Card.Actions>
-      <Button onPress={() => {dispatch(deleteEventThunk(event.id))}}>Удалить</Button>
-      <Button title="Go to notifications" onPress={() => navigation.navigate("SexPage")}>Подарок</Button>
+    <Card.Actions >
+      <Button onPress={() => {dispatch(deleteEventThunk(event.id))}}><AntDesign name="delete" size={24} color="black" /></Button>
+      <Button onPress={() => navigation.navigate("SexPage")}><MaterialCommunityIcons name="gift-open-outline" size={24} color="black" /></Button>
     </Card.Actions>
   </Card>
   );
