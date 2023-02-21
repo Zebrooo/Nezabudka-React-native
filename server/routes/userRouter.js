@@ -22,11 +22,12 @@ const avatarsUpload = multer({ storage: avatarsStorage });
 
 router.get("/", async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: { id: req.session.user.id },
-      include: [Event, Shop, Comment],
-    });
-    return res.json(user);
+    // const user = await User.findOne({
+    //   where: { id: req.session.user.id },
+    //   include: [Event, Shop, Comment],
+    // });
+
+    return res.json(req.session.user);
   } catch (err) {
     console.log(err);
     return res.sendStatus(500);
@@ -109,14 +110,14 @@ router.get("/logout", (req, res) => {
     return res.sendStatus(500);
   }
 });
-router.post(
+router.put(
   "/upload-avatar",
-  avatarsUpload.single("avatar"),
   async (req, res) => {
     try {
+      const { avatar } = req.body;
       const userid = req.session.user.id;
       const user = await User.findByPk(userid);
-      user.avatar = req.file.path;
+      user.avatar = avatar;
       user.save();
       return res.sendStatus(200);
     } catch (err) {

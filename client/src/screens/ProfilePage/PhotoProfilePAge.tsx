@@ -19,6 +19,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useIsFocused } from "@react-navigation/native";
 import { useAppSelector } from "../../Redux/hooks";
 import {
+    findUser,
   findUserAction,
   userLogoutAction,
 } from "../../Redux/UserSlice/UserSliceReducer";
@@ -28,20 +29,22 @@ import defaultAvatar from "../../../assets/defaultAvatar.svg.png";
 export default function PhotoProfilePage({ navigation }) {
   const dispatch = useDispatch();
   const user = useAppSelector((state) => state.user);
+  
   const [refreshing, setRefreshing] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [avatar, setAvatar] = useState("");
   const [changeAvatarStatus, setChangeAvatarStatus] = useState(false);
-
-useEffect(() => {
-    dispatch(findUserAction())
-}, [])
-
+  
   useEffect(() => {
-    if (avatar.length) {
-      setChangeAvatarStatus(!changeAvatarStatus);
-    }
-  }, [avatar]);
+      dispatch(findUserAction())
+    }, [])
+    console.log(user);
+
+  // useEffect(() => {
+  //   if (avatar.length) {
+  //     setChangeAvatarStatus(!changeAvatarStatus);
+  //   }
+  // }, [avatar]);
 
   const logOutEveryMode = () => {
     dispatch(userLogoutAction());
@@ -57,30 +60,34 @@ useEffect(() => {
 
     if (!result.canceled) {
       setAvatar(result.assets[0].uri);
+      console.log(result, result.assets[0].uri);
+      dispatch(addNewShop({ 
+        avatar: result.assets[0].uri}))
+    
     }
   };
 
-  const uploadImage = async () => {
-    const formData = new FormData();
-    formData.append("avatar", {
-      name: `${new Date().toString()}`,
-      uri: avatar,
-      type: "image/jpg",
-    });
+  // const uploadImage = async () => {
+  //   const formData = new FormData();
+  //   formData.append("avatar", {
+  //     name: `${new Date().toString()}`,
+  //     uri: avatar,
+  //     type: "image/jpg",
+  //   });
 
-    try {
-      await axios.post("/user/upload-avatar", formData, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      setChangeAvatarStatus(false);
-      dispatch(findUserAction());
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  //   try {
+  //     await axios.post("/user/upload-avatar", formData, {
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     });
+  //     setChangeAvatarStatus(false);
+  //     dispatch(findUserAction());
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
 
   return (
     <View>
@@ -95,7 +102,7 @@ useEffect(() => {
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.profileRow}>
+        {/* <View style={styles.profileRow}>
           <View>
             <TouchableOpacity
               onPress={pickImage}
@@ -122,11 +129,11 @@ useEffect(() => {
             </View>
             
           </View>
-        </View>
+        </View> */}
         <View>
-          <View>
-            <Text style={{ margin: 10, marginLeft: 20, fontSize: 20, color: "blur" }}>
-              {user.name}
+          <View style={{ alignItems: "center" }}>
+            <Text style={{ margin: 10, fontSize: 20}}>
+              Привет {user.username}
             </Text>
           </View>
         </View>
