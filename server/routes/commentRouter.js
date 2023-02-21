@@ -1,5 +1,5 @@
 const express = require('express');
-const { Comment, Shop, User } = require('../db/models');
+const { Comment,  User } = require('../db/models');
 
 const commentRouter = express.Router();
 
@@ -9,7 +9,7 @@ commentRouter
     try {
       const allComments = await Comment.findAll({
          where: { shopid: req.params.id },
-        include: [User, Shop],
+        include: [User],
         order: [['date', 'DESC']],
       });
       return res.json(allComments);
@@ -21,17 +21,13 @@ commentRouter
   .post(async (req, res) => {
     try {
       const { body, stars } = req.body;
-      await Comment.create({
+     const comment = await Comment.create({
         body,
         stars,
         userid: req.session.user.id,
         shopid: req.params.id
       });
-      const sendComment = await Comment.findOne({
-        where: req.body,
-        include: [User, Shop],
-      });
-      res.json(sendComment);
+      res.json(comment);
     } catch (err) {
       console.log(err);
     }
