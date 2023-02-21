@@ -20,7 +20,7 @@ export default function ShopsByCategory({ navigation }) {
             <Card.Content>
               <Text variant="titleLarge">{shop.name}</Text>
             </Card.Content>
-            <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+            <Card.Cover source={{ uri: shop.img }} />
             <Card.Actions>
               <Button>перейти к товарам</Button>
             </Card.Actions>
