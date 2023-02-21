@@ -13,7 +13,7 @@ import { setCategory } from '../../Redux/ShopSlice/ShopSlice';
 import styles from '../../styles/stylesall';
 
 export default function WomenPage({ navigation }) {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.shops.categories).filter(
     (c) => c.sex === 'unisex' || c.sex === 'woman'
   );
@@ -23,8 +23,8 @@ export default function WomenPage({ navigation }) {
         <ListItem
           title={category.name}
           onPress={() => {
-            navigation.navigate('ShopsByCategory')
-            dispatch(setCategory(category.id))
+            navigation.navigate('ShopsByCategory');
+            dispatch(setCategory(category.id));
           }}
           key={category.id}
         />
