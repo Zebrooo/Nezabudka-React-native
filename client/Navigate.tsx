@@ -18,6 +18,7 @@ import CommentPage from './src/screens/CommentPage/CommentPage';
 import ShopsByCategory from './src/screens/ShopsByCategory/ShopsByCategory';
 import PhotoProfilePage from './src/screens/ProfilePage/PhotoProfilePAge';
 import NewProductPage from './src/screens/NewProductPage/NewProductPage';
+import ProductsPage from './src/screens/ProductsPage/ProductsPage';
 
 const homeName = 'Home';
 const newEventName = 'New Event';
@@ -134,6 +135,11 @@ function GiftNavigator() {
       <GiftStack.Screen
         name="ShopsByCategory"
         component={ShopsByCategory}
+        options={{ headerShown: false }}
+      />
+       <GiftStack.Screen
+        name="ProductsPage"
+        component={ProductsPage}
         options={{ headerShown: false }}
       />
     </GiftStack.Navigator>
