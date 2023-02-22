@@ -8,6 +8,7 @@ export type Event = {
 
 export type EventSliseState = {
   events: Event[];
+  oneEvent: Event;
 };
 
 export default EventSliseState;
