@@ -18,12 +18,12 @@ type OneEventPageProps = {
   const dateRU = new Date(event.date).toLocaleDateString("ru-US", options)
   return (
     <Card style={{margin: 10}}>
-    <Card.Content>
-      <Text variant="titleLarge">{event.name}</Text>
-      <Text variant="bodyMedium">{dateRU}</Text>
+    <Card.Content style={{backgroundColor: '#bad9ed'}}>
+      <Text style={{fontFamily: 'Palatino', fontSize: 22, fontWeight: 'bold'}} variant="titleLarge">{event.name}</Text>
+      <Text style={{fontFamily: 'Palatino', fontSize: 20}} variant="bodyMedium">{dateRU}</Text>
       <Text variant="bodyMedium">{event.comment}</Text>
     </Card.Content>
-    <Card.Actions >
+    <Card.Actions style={{backgroundColor: 'white'}}>
       <Button  textColor='#4587b4' onPress={() => {dispatch(deleteEventThunk(event.id))}}>Удалить</Button>
       <Button buttonColor='#4587b4' onPress={() => navigation.navigate("SexPage")}>Выбрать подарок</Button>
     </Card.Actions>

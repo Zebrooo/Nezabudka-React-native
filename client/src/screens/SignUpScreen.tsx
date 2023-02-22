@@ -86,7 +86,7 @@ export default function SignUpScreen({ navigation }) {
               <View style={styles.botton}>
                 <Button
                   style={styles.botton}
-                  color='black'
+                  color='white'
                   onPress={props.handleSubmit}
                   title='Регистрация'
                 ></Button>
@@ -94,7 +94,7 @@ export default function SignUpScreen({ navigation }) {
               <TouchableOpacity style={styles.botton}
                 onPress={() => navigation.navigate("SignInScreen")}
               >
-                <Text>Есть аккаунт?</Text>
+                <Text style={{color: 'white'}}>Есть аккаунт?</Text>
               </TouchableOpacity>
             </View>
           )}

@@ -43,7 +43,7 @@ export default function MainPage() {
             <Pressable
               style={[style.button, style.buttonClose]}
               onPress={() =>  showModal((prev)=> !prev)}>
-              <Text style={style.textStyle}>Hide Modal</Text>
+              <Text style={style.textStyle}>Закрыть</Text>
             </Pressable>
           </View>
         </View>
@@ -54,8 +54,8 @@ export default function MainPage() {
         <Text style={style.textStyle}>Show Modal</Text>
       </Pressable> */}
     </View>
-      <View style={{ marginTop: "10%", marginLeft: "17%" }}>
-        <Text style={styles.text}>События месяца</Text>
+      <View style={{ alignItems: 'center',  }}>
+        <Text style={{fontFamily: 'Palatino', fontSize: 20, fontWeight: 'bold'}}>События месяца</Text>
       </View>
       <AllEventsPage month={month} />
     </ScrollView>

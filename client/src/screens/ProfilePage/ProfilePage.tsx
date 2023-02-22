@@ -44,7 +44,7 @@ export default function ProfilePage({ navigation }) {
               }}
               onPress={() => navigation.navigate("NewShopPage")}
             >
-              <Text style={styles.textBtn}> Добавить Магазин</Text>
+              <Text style={{color: 'white', fontSize: 24}}> Добавить Магазин</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={{
@@ -56,7 +56,7 @@ export default function ProfilePage({ navigation }) {
                 justifyContent: "center",
                 marginLeft: 60,
               }} onPress={logOutEveryMode}>
-              <Text style={styles.textBtn}>Выход</Text>
+              <Text style={{color: 'white', fontSize: 24}}>Выход</Text>
             </TouchableOpacity>
 
             {/* <Button
