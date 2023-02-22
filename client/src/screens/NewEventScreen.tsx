@@ -16,6 +16,7 @@ import styles from '../styles/stylesall';
 import { useAppDispatch } from '../Redux/hooks';
 import { addEventThunk } from '../Redux/eventSlice/EventSlice';
 import { Button } from 'react-native-paper';
+import { schedulePushNotification } from './Notifications/NotificationScreen';
 
 export default function NewEventScreen({ navigation }) {
   const date = new Date();
@@ -45,9 +46,9 @@ export default function NewEventScreen({ navigation }) {
           initialValues={{ name: '', date: '', comment: '' }}
           onSubmit={(values, { resetForm }) => {
             addEventHandler(values.name, values.date, values.comment);
-            //setTimeout(() => {
-            //   schedulePushNotification()
-            // }, 2000)
+            setTimeout(() => {
+              schedulePushNotification({name:values.name,date: values.date, comment: values.comment})
+            }, 2000) 
             resetForm({ values: '' });
           }}
         >

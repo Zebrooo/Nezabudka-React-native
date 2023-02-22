@@ -12,7 +12,7 @@ import NotificationScreen, { schedulePushNotification } from "./src/screens/Noti
 import AllComments from "./src/screens/CommentPage/AllComments";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "http://192.168.1.56:3001";
 export default function App() {
   //setTimeout(() => {
   //   schedulePushNotification()

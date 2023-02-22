@@ -1,9 +1,9 @@
 export type Event = {
-  id: number;
+  id?: number;
   name: string;
   date: string;
   comment: string;
-  userid: number;
+  userid?: number;
 };
 
 export type EventSliseState = {
