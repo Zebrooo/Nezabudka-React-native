@@ -25,7 +25,7 @@ export default function ShopsByCategory({ navigation }) {
         .filter((shop) => shop.categoryid === categoryid)
         .map((shop) => (
           <Card style={{ margin: 10 }}>
-            <Card.Content>
+            <Card.Content style={{backgroundColor: '#bad9ed'}}>
               <Text
                 style={{ fontSize: 20, fontWeight: "bold" }}
                 variant="titleLarge"
@@ -44,7 +44,7 @@ export default function ShopsByCategory({ navigation }) {
               style={{ height: 100, width: "100%" }}
               source={{ uri: shop.img }}
             />
-            <Card.Actions>
+            <Card.Actions style={{backgroundColor: 'white'}}>
               {/* <Button
                 onPress={() => {
                   navigation.navigate({ uri: shop.http});
