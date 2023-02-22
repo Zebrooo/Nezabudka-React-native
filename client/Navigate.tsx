@@ -90,6 +90,31 @@ function HomeNavigator() {
         component={SexPage}
         options={{ headerShown: false }}
       />
+      <GiftStack.Screen
+        name="ManPage"
+        component={ManPage}
+        options={{ headerShown: false }}
+      />
+      <GiftStack.Screen
+        name="WomenPage"
+        component={WomenPage}
+        options={{ headerShown: false }}
+      />
+      <GiftStack.Screen
+        name="AllComments"
+        component={AllComments}
+        options={{ headerShown: false }}
+      />
+      <GiftStack.Screen
+        name="ShopsByCategory"
+        component={ShopsByCategory}
+        options={{ headerShown: false }}
+      />
+       <GiftStack.Screen
+        name="ProductsPage"
+        component={ProductsPage}
+        options={{ headerShown: false }}
+      />
     </HomeStack.Navigator>
   );
 }
