@@ -16,9 +16,6 @@ export default function CommentPage({ comment }) {
           <Text variant="titleLarge">{comment.body}</Text>
           <Text variant="bodyMedium">{comment.stars}</Text>
         </Card.Content>
-        <TouchableOpacity onPress={navigation.navigate('CommentForm')}>
-          <Text> Оставить комментарий </Text>
-        </TouchableOpacity>
       </Card>
     </ScrollView>
   );
