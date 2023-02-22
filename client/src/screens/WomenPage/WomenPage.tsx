@@ -18,7 +18,7 @@ export default function WomenPage({ navigation }) {
     (c) => c.sex === 'unisex' || c.sex === 'woman'
   );
   return (
-    <ScrollView>
+    <ScrollView style={styles.main}>
       {categories.map((category) => (
         <ListItem
           title={category.name}

@@ -8,10 +8,19 @@ import {
   View,
 } from "react-native";
 import { Button } from "react-native-paper";
+import { useDispatch } from "react-redux";
+import { removeUserFirestorm } from "../../Redux/fireStormSlice/userFiresotrmsliceReducer";
+import { userLogoutAction } from "../../Redux/UserSlice/UserSliceReducer";
 import styles from "../../styles/stylesall";
 import PhotoProfilePage from "./PhotoProfilePAge";
 
 export default function ProfilePage({ navigation }) {
+  const dispatch = useDispatch();
+  const logOutEveryMode = () => {
+    dispatch(userLogoutAction());
+    dispatch(removeUserFirestorm());
+  };
+
   return (
     <View style={styles.main}>
       <Formik
@@ -21,11 +30,35 @@ export default function ProfilePage({ navigation }) {
         {(props) => (
           <View>
             <PhotoProfilePage />
-            <View style={styles.botton}>
-            <TouchableOpacity onPress={() => navigation.navigate('NewShopPage')}>
+
+            <TouchableOpacity
+              style={{
+                alignItems: "center",
+                backgroundColor: "#4587b4",
+                height: 58,
+                borderRadius: 30,
+                width: "70%",
+                justifyContent: "center",
+                marginLeft: 60,
+                marginBottom:10
+              }}
+              onPress={() => navigation.navigate("NewShopPage")}
+            >
               <Text style={styles.textBtn}> Добавить Магазин</Text>
             </TouchableOpacity>
-            </View>
+
+            <TouchableOpacity style={{
+                alignItems: "center",
+                backgroundColor: "#4587b4",
+                height: 58,
+                borderRadius: 30,
+                width: "70%",
+                justifyContent: "center",
+                marginLeft: 60,
+              }} onPress={logOutEveryMode}>
+              <Text style={styles.textBtn}>Выход</Text>
+            </TouchableOpacity>
+
             {/* <Button
               icon="camera"
               mode="contained"

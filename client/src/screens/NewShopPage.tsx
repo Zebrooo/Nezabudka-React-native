@@ -71,7 +71,7 @@ export default function ImagePickerExample() {
                 <Text style={styles.text}>Категория</Text>
                 <Picker
                   selectedValue={selectedValue}
-                  style={{ height: 50, width: 400, marginBottom: 200 }}
+                  // style={{ height: 50, width: 400, marginBottom: 200 }}
                   onValueChange={(itemValue, itemIndex) =>
                     setSelectedValue(itemValue)
                   }

@@ -67,7 +67,7 @@ export default function SignUpScreen({ navigation }) {
           {(props) => (
             <View style={{ marginTop: "60%", marginLeft: "17%" }}>
               <TextInput
-                placeholder="Введите ваш логин"
+                placeholder="Придумайте логин"
                 style={styles.input}
                 onChangeText={props.handleChange("username")}
               ></TextInput>
@@ -78,6 +78,7 @@ export default function SignUpScreen({ navigation }) {
                 onChangeText={props.handleChange("email")}
               ></TextInput>
               <TextInput
+              secureTextEntry={true}
                 placeholder="Придумайте пароль"
                 style={styles.input}
                 onChangeText={props.handleChange("hashpass")}
