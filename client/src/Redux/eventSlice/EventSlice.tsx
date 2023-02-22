@@ -1,15 +1,22 @@
-import axios from "axios";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
-import type { AppThunk } from "../hooks";
-import type { EventSliseState, Event } from "./EventType";
+import axios from 'axios';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type { AppThunk } from '../hooks';
+import type { EventSliseState, Event } from './EventType';
 
 const initialState: EventSliseState = {
   events: [],
+  oneEvent: {
+    id: 0,
+    name: '',
+    date: '',
+    comment: '',
+    userid: 0,
+  },
 };
 
 export const eventSlice = createSlice({
-  name: "events",
+  name: 'events',
   initialState,
   reducers: {
     visualEvent: (state, action: PayloadAction<Event[]>) => ({
@@ -18,6 +25,9 @@ export const eventSlice = createSlice({
     }),
     addEvent: (state, action: PayloadAction<Event>) => {
       state.events.push(action.payload);
+    },
+    modalEvent: (state, action: PayloadAction<Event>) => {
+      state.oneEvent = action.payload;
     },
     deleteEvent: (state, action: PayloadAction<number>) => ({
       ...state,
@@ -39,22 +49,26 @@ export const eventSlice = createSlice({
   },
 });
 
-export const { visualEvent, addEvent, deleteEvent } = eventSlice.actions;
+export const { visualEvent, addEvent, deleteEvent, modalEvent } =
+  eventSlice.actions;
 
 export const visualEventsThunk = (): AppThunk => (dispatch) => {
   try {
   } catch (error) {}
-  axios<Event[]>("/event")
+  axios<Event[]>('/event')
     .then((res) => dispatch(visualEvent(res.data)))
-    .catch((err) => console.log("hi"));
+    .catch((err) => console.log('hi'));
 };
 
 export const addEventThunk =
   (formInput: { title: string }): AppThunk =>
   (dispatch) => {
     axios
-      .post<Event>("/event", formInput)
-      .then((res) => dispatch(addEvent(res.data)))
+      .post<Event>('/event', formInput)
+      .then((res) => {
+        dispatch(addEvent(res.data));
+        dispatch(modalEvent(res.data));
+      })
       .catch(console.log);
   };
 
