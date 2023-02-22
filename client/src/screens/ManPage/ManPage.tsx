@@ -18,9 +18,10 @@ export default function ManPage({ navigation }) {
     (c) => c.sex === 'unisex' || c.sex === 'man'
   );
   return (
-    <ScrollView>
+    <ScrollView style={styles.main}>
       {categories.map((category) => (
         <ListItem
+        
           title={category.name}
           onPress={() => {
             navigation.navigate('ShopsByCategory')

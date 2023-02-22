@@ -55,7 +55,7 @@ export default function MainPage() {
       </Pressable> */}
     </View>
       <View style={{ marginTop: "10%", marginLeft: "17%" }}>
-        <Text style={styles.text}>ближайший список событий</Text>
+        <Text style={styles.text}>События месяца</Text>
       </View>
       <AllEventsPage month={month} />
     </ScrollView>

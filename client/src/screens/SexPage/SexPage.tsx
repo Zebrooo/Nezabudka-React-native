@@ -12,7 +12,8 @@ export default function SexPage({ navigation }) {
     dispatch(loadShops());
   }, []);
   return (
-    <>
+    <View style={styles.main}>
+    
       <ListItem
         title="Подарки для женщин"
         onPress={() => navigation.navigate('WomenPage')}
@@ -21,6 +22,6 @@ export default function SexPage({ navigation }) {
         title="Подарки для мужчин"
         onPress={() => navigation.navigate('ManPage')}
       />
-    </>
+    </View>
   );
 }

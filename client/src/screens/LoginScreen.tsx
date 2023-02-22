@@ -85,6 +85,7 @@ export default function LoginScreen({ navigation }) {
                 value={props.values.email}
               ></TextInput>
               <TextInput
+              secureTextEntry={true}
                 placeholder="Введите ваш пароль"
                 style={styles.input}
                 onChangeText={props.handleChange("hashpass")}
@@ -102,7 +103,7 @@ export default function LoginScreen({ navigation }) {
                 onPress={googleHandle}
               ></Button> */}
               <TouchableOpacity
-                // style={styles.botton}
+                style={styles.botton}
                 onPress={() => navigation.navigate("SignUpScreen")}
               >
                 <Text>Ещё нет аккаунта?</Text>

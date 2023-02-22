@@ -38,14 +38,16 @@ export default function NewProductPage({ navigation }) {
       >
         {(props) => (
           <View>
-            <Text style={styles.text}>Название товара</Text>
-            <TextInput
+            {/* <Text style={styles.text}>Название товара</Text> */}
+            <TextInput 
+            placeholder='Название товара'
               style={styles.input}
               onChangeText={props.handleChange('name')}
               value={props.values.name}
             ></TextInput>
-            <Text style={styles.text}>Цена товара</Text>
+            {/* <Text style={styles.text}>Цена товара</Text> */}
             <TextInput
+            placeholder='Цена товара'
               style={styles.input}
               onChangeText={props.handleChange('price')}
               value={props.values.price}

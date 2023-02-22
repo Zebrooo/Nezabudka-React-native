@@ -92,44 +92,6 @@ export default function PhotoProfilePage({ navigation }) {
   return (
     <View>
       <ScrollView refreshControl={<RefreshControl refreshing={refreshing} />}>
-        <View style={{ alignItems: "flex-end" }}>
-          <TouchableOpacity onPress={logOutEveryMode}>
-            <Octicons
-              name="sign-out"
-              size={24}
-              color="black"
-              style={{ marginRight: 10, marginTop: 5 }}
-            />
-          </TouchableOpacity>
-        </View>
-        {/* <View style={styles.profileRow}>
-          <View>
-            <TouchableOpacity
-              onPress={pickImage}
-            >
-              <Image style={styles.avatar} source={defaultAvatar} />
-            </TouchableOpacity>
-            <View style={{ alignItems: "center", marginTop: 10 }}>
-            <TouchableOpacity
-                onPress={() => {
-                  uploadImage();
-                  setAvatar("");
-                }}
-              >
-                <Text
-                  style={{
-                    marginLeft: 8,
-                    fontWeight: "600",
-                    fontSize: 16,
-                  }}
-                >
-                  сохранить
-                </Text>
-                </TouchableOpacity>
-            </View>
-            
-          </View>
-        </View> */}
         <View>
           <View style={{ alignItems: "center" }}>
             <Text style={{ margin: 10, fontSize: 20}}>
@@ -137,6 +99,11 @@ export default function PhotoProfilePage({ navigation }) {
             </Text>
           </View>
         </View>
+        {/* <View style={{ alignItems: "center" }}>
+          <TouchableOpacity onPress={logOutEveryMode}>
+            <Text>Выход</Text>
+          </TouchableOpacity>
+        </View> */}
       </ScrollView>
     </View>
   );

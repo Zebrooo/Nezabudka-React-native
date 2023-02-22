@@ -24,8 +24,8 @@ type OneEventPageProps = {
       <Text variant="bodyMedium">{event.comment}</Text>
     </Card.Content>
     <Card.Actions >
-      <Button onPress={() => {dispatch(deleteEventThunk(event.id))}}><AntDesign name="delete" size={24} color="black" /></Button>
-      <Button onPress={() => navigation.navigate("SexPage")}><MaterialCommunityIcons name="gift-open-outline" size={24} color="black" /></Button>
+      <Button  textColor='#4587b4' onPress={() => {dispatch(deleteEventThunk(event.id))}}>Удалить</Button>
+      <Button buttonColor='#4587b4' onPress={() => navigation.navigate("SexPage")}>Выбрать подарок</Button>
     </Card.Actions>
   </Card>
   );

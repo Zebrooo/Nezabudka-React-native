@@ -11,11 +11,12 @@ export default function Calendarik({setMonth, showModal}): JSX.Element {
   const stringEvent = events.map((event) => event.date);
   let calendarDate = {};
   for (let i = 0; i < stringEvent.length; i++) {
-    calendarDate[stringEvent[i]] = { marked: true, selected: true };
+    calendarDate[stringEvent[i]] = { marked: true, selected: true, selectedColor: '#4587b4' };
   }
   return (
     <View>
       <Calendar
+      
         style={{ borderRadius: 10, elevation: 4, margin: 10 }}
         onDayPress={(date) => {
           showModal(true)

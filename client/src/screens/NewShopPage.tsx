@@ -46,20 +46,23 @@ export default function ImagePickerExample() {
         {(props) => (
           <View>
             <View>
-              <Text style={styles.text}>Название магазина</Text>
+              {/* <Text style={styles.text}>Название магазина</Text> */}
               <TextInput
+              placeholder='Название магазина'
                 style={styles.input}
                 onChangeText={props.handleChange('name')}
                 value={props.values.name}
               ></TextInput>
-              <Text style={styles.text}>Ссылка на сайт</Text>
+              {/* <Text style={styles.text}>Ссылка для связи</Text> */}
               <TextInput
+              placeholder='Ссылка для связи'
                 style={styles.input}
                 onChangeText={props.handleChange('http')}
                 value={props.values.http}
               ></TextInput>
-              <Text style={styles.text}>Геотег</Text>
+              {/* <Text style={styles.text}>Адрес</Text> */}
               <TextInput
+              placeholder='Адрес'
                 style={styles.input}
                 onChangeText={props.handleChange('geoteg')}
                 value={props.values.geoteg}
@@ -68,7 +71,7 @@ export default function ImagePickerExample() {
                 <Text style={styles.text}>Категория</Text>
                 <Picker
                   selectedValue={selectedValue}
-                  style={{ height: 50, width: 400, marginBottom: 200 }}
+                  // style={{ height: 50, width: 400, marginBottom: 200 }}
                   onValueChange={(itemValue, itemIndex) =>
                     setSelectedValue(itemValue)
                   }
