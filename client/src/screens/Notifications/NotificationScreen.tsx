@@ -3,6 +3,7 @@ import { Text, View, Button, Platform } from "react-native";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import { useAppSelector } from "../../Redux/hooks";
+import { Event } from "../../Redux/eventSlice/EventType";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -17,7 +18,7 @@ export default function App() {
   const [notification, setNotification] = useState(false);
   const notificationListener = useRef();
   const responseListener = useRef();
-  const events = useAppSelector((store)=> store.events.events)
+  const event = useAppSelector((store)=> store.events.oneEvent)
 
   useEffect(() => {
     registerForPushNotificationsAsync().then((token) =>
@@ -65,19 +66,19 @@ export default function App() {
       <Button
         title="Press to schedule a notification"
         onPress={async () => {
-          await schedulePushNotification();
+          await schedulePushNotification(event);
         }}
       />
     </View>
   );
 }
 
-export async function schedulePushNotification() {
+export async function schedulePushNotification(event:Event) {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "You've got mail! 📬",
-      body: "Here is the notification body",
-      data: { data: "goes here" },
+      title: event.name,
+      body: event.comment,
+      data: { data: event.date },
     },
     trigger: { seconds: 2 },
   });

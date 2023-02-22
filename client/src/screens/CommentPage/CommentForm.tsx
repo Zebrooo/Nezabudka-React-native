@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import { useAppDispatch } from "../../Redux/hooks";
+import { addNewComment } from "../../Redux/ShopSlice/ShopSlice";
 import styles from "../../styles/stylesall";
 export default function CommentForm() {
   const dispatch = useAppDispatch();

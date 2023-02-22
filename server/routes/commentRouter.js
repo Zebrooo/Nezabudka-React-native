@@ -20,6 +20,9 @@ commentRouter
   })
   .post(async (req, res) => {
     try {
+      console.log('====================================');
+      console.log(req.body, req.session.user);
+      console.log('====================================');
       const { body, stars } = req.body;
      const comment = await Comment.create({
         body,
@@ -27,6 +30,9 @@ commentRouter
         userid: req.session.user.id,
         shopid: req.params.id
       });
+      console.log('====================================');
+      console.log(comment);
+      console.log('====================================');
       res.json(comment);
     } catch (err) {
       console.log(err);
