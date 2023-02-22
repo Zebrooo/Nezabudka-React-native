@@ -22,7 +22,7 @@ export default function App() {
   LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
-      <NotificationScreen />
+      <Navigate />
     </Provider>
   );
 }
