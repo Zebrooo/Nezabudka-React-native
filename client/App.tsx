@@ -14,15 +14,13 @@ import AllComments from "./src/screens/CommentPage/AllComments";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "http://localhost:3001";
 export default function App() {
-  const timerId = setTimeout(() => {
-    schedulePushNotification()
-  }, 2000)
-  
-  console.log(timerId)
+  //setTimeout(() => {
+  //   schedulePushNotification()
+  // }, 2000)
   LogBox.ignoreAllLogs();
   return (
     <Provider store={store}>
-      <NotificationScreen />
+      <Navigate />
     </Provider>
   );
 }

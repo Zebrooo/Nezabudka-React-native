@@ -12,9 +12,7 @@ export default function Calendarik({setMonth, showModal}): JSX.Element {
   let calendarDate = {};
   for (let i = 0; i < stringEvent.length; i++) {
     calendarDate[stringEvent[i]] = { marked: true, selected: true };
-    // console.log(calendarDate);
   }
-
   return (
     <View>
       <Calendar

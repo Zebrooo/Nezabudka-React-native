@@ -49,7 +49,8 @@ export const eventSlice = createSlice({
   },
 });
 
-export const { visualEvent, addEvent, deleteEvent, modalEvent } = eventSlice.actions;
+export const { visualEvent, addEvent, deleteEvent, modalEvent } =
+  eventSlice.actions;
 
 export const visualEventsThunk = (): AppThunk => (dispatch) => {
   try {
@@ -64,7 +65,10 @@ export const addEventThunk =
   (dispatch) => {
     axios
       .post<Event>('/event', formInput)
-      .then((res) => dispatch(addEvent(res.data)))
+      .then((res) => {
+        dispatch(addEvent(res.data));
+        dispatch(modalEvent(res.data));
+      })
       .catch(console.log);
   };
 
