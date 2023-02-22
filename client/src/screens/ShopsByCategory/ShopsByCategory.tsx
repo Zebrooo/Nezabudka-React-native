@@ -19,16 +19,25 @@ export default function ShopsByCategory({ navigation }) {
           <Card>
             <Card.Content>
               <Text variant="titleLarge">{shop.name}</Text>
+              <Text variant="titleLarge">{shop.geoteg}</Text>
             </Card.Content>
             <Card.Cover source={{ uri: shop.img }} />
             <Card.Actions>
+            <Button
+                onPress={() => {
+                  navigation.navigate({ uri: shop.http});
+                  dispatch(setShop(shop));
+                }}
+              >
+                Перейти в магазин
+              </Button>
               <Button
                 onPress={() => {
                   navigation.navigate('ProductsPage');
                   dispatch(setShop(shop));
                 }}
               >
-                перейти к товарам
+                Популярные товары
               </Button>
               <Button
                 onPress={() => {
@@ -36,7 +45,7 @@ export default function ShopsByCategory({ navigation }) {
                   dispatch(setShop(shop));
                 }}
               >
-                комментарии
+                Комментарии
               </Button>
             </Card.Actions>
           </Card>

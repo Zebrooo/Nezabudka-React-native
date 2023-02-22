@@ -21,22 +21,18 @@ export default function ProfilePage({ navigation }) {
         {(props) => (
           <View>
             <PhotoProfilePage />
-            <Text style={styles.text}>уведомления</Text>
-            <TextInput
-              style={styles.input}
-              onChangeText={props.handleChange("email")}
-              value={props.values.email}
-            ></TextInput>
+            <View style={styles.botton}>
             <TouchableOpacity onPress={() => navigation.navigate('NewShopPage')}>
-              <Text style={styles.text}> Добавить Магазин</Text>
+              <Text style={styles.textBtn}> Добавить Магазин</Text>
             </TouchableOpacity>
-            <Button
+            </View>
+            {/* <Button
               icon="camera"
               mode="contained"
               onPress={() => console.log("Pressed")}
             >
               Добавить магазин
-            </Button>
+            </Button> */}
           </View>
         )}
       </Formik>

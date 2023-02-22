@@ -23,7 +23,7 @@ export default function ProductsPage({ navigation }) {
               <Text variant="titleLarge">{product.name}</Text>
             </Card.Content>
             <Card.Content>
-              <Text variant="titleLarge">{product.price}</Text>
+              <Text variant="titleLarge">Стоимость: {product.price} руб. за шт.</Text>
             </Card.Content>
             <Card.Cover source={{ uri: product.img }} />
           </Card>

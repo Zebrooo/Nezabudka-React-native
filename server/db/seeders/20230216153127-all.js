@@ -16,40 +16,32 @@ module.exports = {
       "Events",
       [
         {
-          name: "День Рождение Максима",
-          date: "2023-07-07",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "День всех влюбленных",
+          date: "2023-02-14",
         },
         {
-          name: "День Рождение Lbvs",
-          date: "2023-07-07",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "День защитника Отечества",
+          date: "2023-02-23",
         },
         {
-          name: "День Рождение Максима",
-          date: "2023-07-07",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "Международный женский день",
+          date: "2023-03-08",
         },
         {
-          name: "День Рождение Lbvs",
-          date: "2023-02-24",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "День фрилансера",
+          date: "2023-05-14",
         },
         {
-          name: "День Рождение Максима",
-          date: "2023-02-08",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "День здорового питания и отказа от излишеств в еде",
+          date: "2023-06-02",
         },
         {
-          name: "День Рождение Lbvs",
-          date: "2023-02-07",
-          comment: "Любит путешествия, балансборд, головоломки",
-          userid: 1,
+          name: "День программиста",
+          date: "2023-09-13",
+        },
+        {
+          name: "День интернета",
+          date: "2023-09-30",
         },
         {
           name: "День программиста",
@@ -71,6 +63,19 @@ module.exports = {
           name: "День лысого Ежа!",
           date: "2023-02-17",
         },
+        {
+          name: "Всемирный день писателя!",
+          date: "2023-03-03",
+        },
+        {
+          name: "Всемирный день поэзии!",
+          date: "2023-03-21",
+        },
+        {
+          name: "Всемирный День защиты прав потребителей!",
+          date: "2023-03-15",
+        },
+        
       ],
       {}
     );
@@ -337,6 +342,42 @@ module.exports = {
           http: "https://www.amag.ru",
           categoryid: 5,
           img: "https://1gai.ru/uploads/posts/2018-07/1530791481_gf.jpg",
+        },
+
+        {
+          name: "«Ароматный мир»",
+          http: "https://amwine.ru",
+          geoteg: 'Шаболовка ул., д. 65, корп. 1, Москва, 123056',
+          categoryid: 8,
+          img: "https://tadviser.ru/images/1/18/Ароматный_мир.png",
+        },
+        {
+          name: "ВинЛаб",
+          http: "https://amwine.ru",
+          geoteg: 'проспект Ленинградский, 52, Москва, 119333',
+          categoryid: 8,
+          img: "https://api.halvacard.ru/public-api/files/9d328474-dc61-49fd-bab9-1c4e427d13e1.png",
+        },
+        {
+          name: "Красное&Белое",
+          http: "https://krasnoeibeloe.ru",
+          geoteg: 'пр. 60-летия Октября, 19, Москва, 117312',
+          categoryid: 8,
+          img: "https://krasnoeibeloe.servicecdn.ru/local/templates/.default/img/logokb-2022.jpg",
+        },
+        {
+          name: "Винотеки SimpleWine",
+          http: "https://simplewine.ru",
+          geoteg: 'Ленинский пр-т., 30, Москва, 119334',
+          categoryid: 8,
+          img: "https://s.rbk.ru/v1_companies_s3/resized/960xH/media/trademarks/118a202e-3579-4019-8d4d-b2b10517bca0.jpg",
+        },
+        {
+          name: "WineStyle - сеть винных магазинов",
+          http: "https://winestyle.ru",
+          geoteg: 'Ленинский пр-т., 52, Москва, 119333',
+          categoryid: 8,
+          img: "https://bestbenefits.ru/storage/products/January2022/rLY5ZCCNiz5eOOxwiI80.jpg",
         },
       ],
       {}
@@ -1107,7 +1148,98 @@ module.exports = {
           shopid: "24",
         },
 
+        {
+          name: 'Джин Name & Nature Irish 0,7 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1025863-300Wx300H?context=bWFzdGVyfGltYWdlc3w2OTI4MXxpbWFnZS9wbmd8aW1hZ2VzL2gxZS9oZDEvOTg1MzExODM0OTM0Mi5wbmd8ZDlmMGM1MzUwNGI0NGJjYWNlZDUyY2ZlYmU2YjBjM2MwNjYwMzk3YmY2NGNlMGFhOGQ3NWIwZDYwYTdmNmE3MQ",
+          price: 1400,
+          shopid: 25,
+        },
+        {
+          name: 'Вино игристое Tete De Cheval белое брют 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1021174-300Wx300H?context=bWFzdGVyfGltYWdlc3w0NTk5MXxpbWFnZS9wbmd8aW1hZ2VzL2gwNi9oNzEvOTE0ODQ0ODU3MTQyMi5wbmd8MDIxZDZmZjQwM2YxMGJhMTc0ZTYwYjU3MWUyMTcxNWY1YmNiY2UzNDkzYjllNmQ0NzI4MDFiYzE0NmY5Mzg1Yw",
+          price: 899,
+          shopid: 25,
+        },
+        {
+          name: 'Виски Glenfiddich 12 лет 0,5 л в тубе',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1001140.png-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDYwNTJ8aW1hZ2UvcG5nfGltYWdlcy9oZmIvaGRiLzg4MzI1NzY5Nzg5NzQucG5nfGFhNDIzZDc4ZWJlOTE4MzdiNDZhZmU2MzgyODEyOGY5MDhiNzRjYzZmNmU5NDU5Nzc5MTUzN2Y2MjMyYmQ1OTc",
+          price: 3299,
+          shopid: 25,
+        },
+        {
+          name: 'Коньяк Camus VSOP 0,7 л в подарочной упаковке',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1002594-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDE3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oZjUvaGYzLzk0NTQ0MTE0MTU1ODIucG5nfGIyMGIwOTdmOWU4NzcwMWU0MjY1ZTM3MzVmZmZjNjZlODZlZjQwN2RmYmJkYTg0OGJkMTRiY2Q2NjQ0MzllNDA",
+          price: 4499,
+          shopid: 25,
+        },
+        {
+          name: 'Вино Piccini Chianti Riserva красное сухое 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1017108-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wzODk2N3xpbWFnZS9wbmd8aW1hZ2VzL2hmNC9oM2EvOTM4NzM5ODA3MDMwMi5wbmd8Yjg1MjYyOGNjMzk2ODFiYzFlM2JlMGI3YjE3OWIxYWQ2YjIwMWFjN2Q0Zjg1NGI5YzAyNTM1ZGNlMzU3MWE2MA",
+          price: 699,
+          shopid: 25,
+        },
+
+        {
+          name: 'Джин Name & Nature Irish 0,7 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1025863-300Wx300H?context=bWFzdGVyfGltYWdlc3w2OTI4MXxpbWFnZS9wbmd8aW1hZ2VzL2gxZS9oZDEvOTg1MzExODM0OTM0Mi5wbmd8ZDlmMGM1MzUwNGI0NGJjYWNlZDUyY2ZlYmU2YjBjM2MwNjYwMzk3YmY2NGNlMGFhOGQ3NWIwZDYwYTdmNmE3MQ",
+          price: 1400,
+          shopid: 26,
+        },
+        {
+          name: 'Вино игристое Tete De Cheval белое брют 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1021174-300Wx300H?context=bWFzdGVyfGltYWdlc3w0NTk5MXxpbWFnZS9wbmd8aW1hZ2VzL2gwNi9oNzEvOTE0ODQ0ODU3MTQyMi5wbmd8MDIxZDZmZjQwM2YxMGJhMTc0ZTYwYjU3MWUyMTcxNWY1YmNiY2UzNDkzYjllNmQ0NzI4MDFiYzE0NmY5Mzg1Yw",
+          price: 899,
+          shopid: 26,
+        },
+        {
+          name: 'Виски Glenfiddich 12 лет 0,5 л в тубе',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1001140.png-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDYwNTJ8aW1hZ2UvcG5nfGltYWdlcy9oZmIvaGRiLzg4MzI1NzY5Nzg5NzQucG5nfGFhNDIzZDc4ZWJlOTE4MzdiNDZhZmU2MzgyODEyOGY5MDhiNzRjYzZmNmU5NDU5Nzc5MTUzN2Y2MjMyYmQ1OTc",
+          price: 3299,
+          shopid: 26,
+        },
+        {
+          name: 'Коньяк Camus VSOP 0,7 л в подарочной упаковке',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1002594-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDE3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oZjUvaGYzLzk0NTQ0MTE0MTU1ODIucG5nfGIyMGIwOTdmOWU4NzcwMWU0MjY1ZTM3MzVmZmZjNjZlODZlZjQwN2RmYmJkYTg0OGJkMTRiY2Q2NjQ0MzllNDA",
+          price: 4499,
+          shopid: 26,
+        },
+        {
+          name: 'Вино Piccini Chianti Riserva красное сухое 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1017108-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wzODk2N3xpbWFnZS9wbmd8aW1hZ2VzL2hmNC9oM2EvOTM4NzM5ODA3MDMwMi5wbmd8Yjg1MjYyOGNjMzk2ODFiYzFlM2JlMGI3YjE3OWIxYWQ2YjIwMWFjN2Q0Zjg1NGI5YzAyNTM1ZGNlMzU3MWE2MA",
+          price: 699,
+          shopid: 26,
+        },
         
+        {
+          name: 'Джин Name & Nature Irish 0,7 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1025863-300Wx300H?context=bWFzdGVyfGltYWdlc3w2OTI4MXxpbWFnZS9wbmd8aW1hZ2VzL2gxZS9oZDEvOTg1MzExODM0OTM0Mi5wbmd8ZDlmMGM1MzUwNGI0NGJjYWNlZDUyY2ZlYmU2YjBjM2MwNjYwMzk3YmY2NGNlMGFhOGQ3NWIwZDYwYTdmNmE3MQ",
+          price: 1400,
+          shopid: 27,
+        },
+        {
+          name: 'Вино игристое Tete De Cheval белое брют 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1021174-300Wx300H?context=bWFzdGVyfGltYWdlc3w0NTk5MXxpbWFnZS9wbmd8aW1hZ2VzL2gwNi9oNzEvOTE0ODQ0ODU3MTQyMi5wbmd8MDIxZDZmZjQwM2YxMGJhMTc0ZTYwYjU3MWUyMTcxNWY1YmNiY2UzNDkzYjllNmQ0NzI4MDFiYzE0NmY5Mzg1Yw",
+          price: 899,
+          shopid: 27,
+        },
+        {
+          name: 'Виски Glenfiddich 12 лет 0,5 л в тубе',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1001140.png-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDYwNTJ8aW1hZ2UvcG5nfGltYWdlcy9oZmIvaGRiLzg4MzI1NzY5Nzg5NzQucG5nfGFhNDIzZDc4ZWJlOTE4MzdiNDZhZmU2MzgyODEyOGY5MDhiNzRjYzZmNmU5NDU5Nzc5MTUzN2Y2MjMyYmQ1OTc",
+          price: 3299,
+          shopid: 27,
+        },
+        {
+          name: 'Коньяк Camus VSOP 0,7 л в подарочной упаковке',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1002594-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wxMDE3Mjh8aW1hZ2UvcG5nfGltYWdlcy9oZjUvaGYzLzk0NTQ0MTE0MTU1ODIucG5nfGIyMGIwOTdmOWU4NzcwMWU0MjY1ZTM3MzVmZmZjNjZlODZlZjQwN2RmYmJkYTg0OGJkMTRiY2Q2NjQ0MzllNDA",
+          price: 4499,
+          shopid: 27,
+        },
+        {
+          name: 'Вино Piccini Chianti Riserva красное сухое 0,75 л',
+          img: "https://jmrkpxyvei.a.trbcdn.net/medias/1017108-1-300Wx300H?context=bWFzdGVyfGltYWdlc3wzODk2N3xpbWFnZS9wbmd8aW1hZ2VzL2hmNC9oM2EvOTM4NzM5ODA3MDMwMi5wbmd8Yjg1MjYyOGNjMzk2ODFiYzFlM2JlMGI3YjE3OWIxYWQ2YjIwMWFjN2Q0Zjg1NGI5YzAyNTM1ZGNlMzU3MWE2MA",
+          price: 699,
+          shopid: 27,
+        },
       ],
       {}
     );
