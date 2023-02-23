@@ -82,7 +82,7 @@ export default function NewEventScreen({ navigation }) {
                 style={styles.botton}
                 onPress={props.handleSubmit}
               >
-                <Text style={styles.text}>Добавить</Text>
+                <Text style={{color: 'white', fontSize: 18}}>Добавить</Text>
               </TouchableOpacity>
             </View>
           )}

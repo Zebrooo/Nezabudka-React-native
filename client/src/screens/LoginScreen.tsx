@@ -95,7 +95,7 @@ export default function LoginScreen({ navigation }) {
                 style={styles.botton}
                 onPress={props.handleSubmit}
               >
-                <Text style={styles.textBtn}> Войти</Text>
+                <Text style={{color: 'white', fontSize: 20}}> Войти</Text>
               </TouchableOpacity>
               {/* <Button
                 title="Gogl"
@@ -106,7 +106,7 @@ export default function LoginScreen({ navigation }) {
                 style={styles.botton}
                 onPress={() => navigation.navigate("SignUpScreen")}
               >
-                <Text>Ещё нет аккаунта?</Text>
+                <Text style={{color: 'white'}}>Ещё нет аккаунта?</Text>
               </TouchableOpacity>
             </View>
           )}
