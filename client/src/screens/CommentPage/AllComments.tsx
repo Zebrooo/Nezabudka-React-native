@@ -44,6 +44,8 @@ export default function AllComments() {
         ))}
       </ScrollView>
       <TextInput
+      placeholder='Введите комментарий...'
+      style={{backgroundColor: '#bad9ed'}}
         onChangeText={(newText) => setInput(newText)}
         value={input}
       ></TextInput>
@@ -53,7 +55,7 @@ export default function AllComments() {
         onFinishRating={(s) => setNumber(s)}
         size={20}
       />
-      <Button onPress={SubmitHandler}> Отправить</Button>
+      <Button textColor='black' onPress={SubmitHandler}> Отправить</Button>
     </>
   );
 }

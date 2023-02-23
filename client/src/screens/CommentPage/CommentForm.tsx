@@ -39,7 +39,7 @@ export default function CommentForm() {
             ></TextInput>
             <Button
               title="Отправить"
-              style={styles.botton}
+              color='white'
               onPress={() => {
                 props.handleSubmit();
                 navigation.navigate("ShopPages");
