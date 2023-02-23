@@ -29,7 +29,7 @@ export default function ShopsByCategory({ navigation }) {
           <Card style={{ margin: 10 }}>
             <Card.Content style={{ backgroundColor: "#bad9ed" }}>
               <Text
-                style={{ fontSize: 20, fontWeight: 'bold' }}
+                style={{ fontSize: 20, fontWeight: "bold" }}
                 variant="titleLarge"
               >
                 {shop.name}
@@ -50,14 +50,14 @@ export default function ShopsByCategory({ navigation }) {
               </TouchableOpacity>
             </Card.Content>
             <Card.Cover
-              style={{ height: 100, width: '100%' }}
+              style={{ height: 100, width: "100%" }}
               source={{ uri: shop.img }}
             />
             <Card.Actions style={{ backgroundColor: "white" }}>
               <Button
                 textColor="#4587b4"
                 onPress={() => {
-                  navigation.navigate('ProductsPage');
+                  navigation.navigate("ProductsPage");
                   dispatch(setShop(shop));
                 }}
               >
@@ -66,7 +66,7 @@ export default function ShopsByCategory({ navigation }) {
               <Button
                 buttonColor="#4587b4"
                 onPress={() => {
-                  navigation.navigate('AllComments');
+                  navigation.navigate("AllComments");
                   dispatch(setShop(shop));
                 }}
               >
