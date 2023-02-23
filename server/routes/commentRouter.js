@@ -10,7 +10,7 @@ commentRouter
       const allComments = await Comment.findAll({
          where: { shopid: req.params.id },
         include: [User],
-        order: [['date', 'DESC']],
+        order: [['createdAt', 'DESC']],
       });
       return res.json(allComments);
     } catch (err) {

@@ -17,6 +17,10 @@ export default function MainPage() {
   const [ modal, showModal] = useState(false)
   const dispatch = useAppDispatch();
   const event = useAppSelector((store) => store?.events?.oneEvent)
+
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  const dateRU = new Date(event.date).toLocaleDateString("ru-US", options)
+
   useEffect(() => {
     dispatch(visualEventsThunk());
     dispatch(loadCategories());
@@ -39,8 +43,11 @@ export default function MainPage() {
         <View style={style.centeredView}>
           <View style={style.modalView}>
             <Text style={style.modalText}>{event.name}</Text>
-            <Text style={style.modalText}>{event.date}</Text>
+            <Text style={style.modalText}>{dateRU}</Text>
+            {event.comment && 
+            
             <Text style={style.modalText}>{event.comment}</Text>
+            }
             <Pressable
               style={[style.button, style.buttonClose]}
               onPress={() =>  showModal((prev)=> !prev)}>
@@ -94,7 +101,7 @@ const style = StyleSheet.create
     backgroundColor: '#F194FF',
   },
   buttonClose: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#4587b4',
   },
   textStyle: {
     color: 'white',

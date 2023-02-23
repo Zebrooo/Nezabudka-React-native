@@ -39,14 +39,14 @@ export default function ShopsByCategory({ navigation }) {
               </Text>
 
               <Text style={{ fontSize: 14}} variant="titleLarge">
-                Рейтинг:{funcScore(shop.Comments)}
+                Рейтинг: {funcScore(shop.Comments)}
               </Text>
               <TouchableOpacity
                 onPress={() => {
                   Linking.openURL(shop.http);
                 }}
               >
-                <Text style={{ fontSize: 14 }}>Перейти на сайт</Text>
+                <Text style={{ fontSize: 14, textDecorationLine: 'underline', marginBottom: 3 }}>Перейти на сайт</Text>
               </TouchableOpacity>
             </Card.Content>
             <Card.Cover
