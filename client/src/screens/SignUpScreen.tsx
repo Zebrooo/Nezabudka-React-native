@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
-import { registrationAction } from "../Redux/UserSlice/UserSliceReducer";
+import { findUserAction, registrationAction } from "../Redux/UserSlice/UserSliceReducer";
 import type { User } from "../Redux/UserSlice/UserType";
 import styles from "../styles/stylesall";
 import logo from "../../assets/logo.png";
@@ -62,6 +62,7 @@ export default function SignUpScreen({ navigation }) {
           onSubmit={(values, { resetForm }) => {
             SignUpHandler(values.email, values.hashpass, values.username);
             resetForm({ values: "" });
+            dispatch(findUserAction())
           }}
         >
           {(props) => (

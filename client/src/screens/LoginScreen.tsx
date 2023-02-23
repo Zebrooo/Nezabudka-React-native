@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { auth, provider } from "../../config/firebase";
 import { setUserFirestorm } from "../Redux/fireStormSlice/userFiresotrmsliceReducer";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
-import { loginAction } from "../Redux/UserSlice/UserSliceReducer";
+import { findUserAction, loginAction } from "../Redux/UserSlice/UserSliceReducer";
 import { signInWithPopup } from "@firebase/auth";
 import { Formik } from "formik";
 import {
@@ -71,7 +71,7 @@ export default function LoginScreen({ navigation }) {
           initialValues={{ email: "", hashpass: "" }}
           onSubmit={(values, { resetForm }) => {
             LoginHandler(values.email, values.hashpass);
-            console.log(values);
+            dispatch(findUserAction())
             resetForm({ values: "" });
           }}
         >
