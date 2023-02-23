@@ -38,24 +38,24 @@ export default function AllComments() {
   console.log(number);
   return (
     <>
+        <TextInput
+        placeholder='Введите комментарий...'
+        style={{backgroundColor: '#bad9ed'}}
+          onChangeText={(newText) => setInput(newText)}
+          value={input}
+        ></TextInput>
+        <AirbnbRating
+          count={5}
+          defaultRating={number}
+          onFinishRating={(s) => setNumber(s)}
+          size={20}
+        />
+        <Button textColor='black' onPress={SubmitHandler}> Отправить</Button>
       <ScrollView style={styles.main}>
         {shop.Comments.map((comment) => (
           <CommentPage comment={comment} key={comment.id} />
         ))}
       </ScrollView>
-      <TextInput
-      placeholder='Введите комментарий...'
-      style={{backgroundColor: '#bad9ed'}}
-        onChangeText={(newText) => setInput(newText)}
-        value={input}
-      ></TextInput>
-      <AirbnbRating
-        count={5}
-        defaultRating={number}
-        onFinishRating={(s) => setNumber(s)}
-        size={20}
-      />
-      <Button textColor='black' onPress={SubmitHandler}> Отправить</Button>
     </>
   );
 }
