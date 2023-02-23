@@ -45,10 +45,16 @@ export const shopsSlice = createSlice({
       ...state,
       oneShop: action.payload,
     }),
-    
+
     addComment: (state, action: PayloadAction<Comment>) => ({
       ...state,
-      oneShop: {...state.oneShop, Comments: [action.payload, ...state.oneShop.Comments]}
+      oneShop: {
+        ...state.oneShop,
+        Comments: [action.payload, ...state.oneShop.Comments],
+      },
+      shops: state.shops.map((shop) =>
+        shop.id === state.oneShop.id ? state.oneShop : shop
+      ),
     }),
 
     setCategory: (state, action: PayloadAction<number>) => ({
@@ -80,7 +86,7 @@ export const {
   addShop,
   addProduct,
   setShop,
-  addComment
+  addComment,
 } = shopsSlice.actions;
 
 export const loadShops = (): AppThunk => (dispatch) => {
@@ -140,13 +146,15 @@ export const loadCategories = (): AppThunk => (dispatch) => {
   }
 };
 
-export const addNewComment = (comment:Comment): AppThunk => (dispatch) => {
-  try {
-    axios
-    .post(`/comments/shop/${comment.shopid}`, comment)
-    .then((response) => dispatch(addComment(response.data)));
-  } catch (error) {
-    console.log(error);
-  }
-}
+export const addNewComment =
+  (comment: Comment): AppThunk =>
+  (dispatch) => {
+    try {
+      axios
+        .post(`/comments/shop/${comment.shopid}`, comment)
+        .then((response) => dispatch(addComment(response.data)));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 export default shopsSlice.reducer;
