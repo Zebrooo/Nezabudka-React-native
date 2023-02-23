@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from 'expo-image-picker';
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { addNewShop } from "../Redux/ShopSlice/ShopSlice";
 import { Card, Text } from "react-native-paper";
@@ -37,7 +37,6 @@ export default function ImagePickerExample() {
       itemKey: cat.id,
     };
   });
-  console.log(picker);
 
   return (
     <View style={styles.main}>
@@ -78,7 +77,7 @@ export default function ImagePickerExample() {
                 <RNPickerSelect
                   style={pickerStyle}
                   placeholder={{ label: "Выбор категории" }}
-                  onValueChange={(value) => console.log(value)}
+                  onValueChange={(value) => setSelectedValue(value)}
                   items={picker}
                 />
               </View>
@@ -136,7 +135,7 @@ const pickerStyle = {
     fontSize: 16,
     borderRadius: 10,
     padding: 12,
-    width: 300,
+    width: 345,
   },
   placeholder: {
       color: 'grey',

@@ -8,6 +8,7 @@ import MyComponent from "../components/ModalScreen";
 import { visualEventsThunk } from "../Redux/eventSlice/EventSlice";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { loadCategories } from "../Redux/ShopSlice/ShopSlice";
+import { findUserAction } from "../Redux/UserSlice/UserSliceReducer";
 import styles from "../styles/stylesall";
 import AllEventsPage from "./EventsPage/AllEventsPage";
 
@@ -61,8 +62,8 @@ export default function MainPage() {
         <Text style={style.textStyle}>Show Modal</Text>
       </Pressable> */}
     </View>
-      <View style={{ alignItems: 'center',  }}>
-        <Text style={{fontFamily: 'Palatino', fontSize: 20, fontWeight: 'bold'}}>События месяца</Text>
+      <View style={{ marginTop: "10%", marginLeft: "17%" }}>
+        <Text style={styles.text}>ближайший список событий</Text>
       </View>
       <AllEventsPage month={month} />
     </ScrollView>

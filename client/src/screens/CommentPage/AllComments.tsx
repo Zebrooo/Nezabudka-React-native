@@ -3,7 +3,7 @@ import { Button, TextInput } from 'react-native-paper';
 import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import CommentPage from './CommentPage';
 import { Rating, AirbnbRating } from 'react-native-ratings';
-import { addNewComment } from '../../Redux/ShopSlice/ShopSlice';
+import { addNewComment, loadShops } from '../../Redux/ShopSlice/ShopSlice';
 import { ScrollView } from 'react-native';
 import styles from '../../styles/stylesall';
 
@@ -21,9 +21,7 @@ export default function AllComments() {
       shopid: shop.id,
       userid: user,
     };
-    console.log('====================================');
-    console.log(obj);
-    console.log('====================================');
+    
     dispatch(
       addNewComment({
         body: input,
@@ -32,6 +30,7 @@ export default function AllComments() {
         userid: user,
       })
     );
+    dispatch(loadShops());
     setInput('');
     setNumber(1);
   };
