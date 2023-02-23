@@ -13,9 +13,11 @@ export default function CommentPage({ comment }) {
   return (
    
       <Card style={{ margin: 10 }}>
-        <Card.Content>
+        <Card.Content style={{backgroundColor: 'white'}}>
           <Text variant="titleLarge">{comment.body}</Text>
+          
           <AirbnbRating
+          
             isDisabled={true}
             count={5}
             defaultRating={comment.stars}
