@@ -5,6 +5,7 @@ import CommentPage from './CommentPage';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 import { addNewComment, loadShops } from '../../Redux/ShopSlice/ShopSlice';
 import { ScrollView } from 'react-native';
+import styles from '../../styles/stylesall';
 
 export default function AllComments() {
   const [input, setInput] = useState('');
@@ -36,7 +37,7 @@ export default function AllComments() {
   console.log(number);
   return (
     <>
-      <ScrollView>
+      <ScrollView style={styles.main}>
         {shop.Comments.map((comment) => (
           <CommentPage comment={comment} key={comment.id} />
         ))}
