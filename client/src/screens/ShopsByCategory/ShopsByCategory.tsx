@@ -13,8 +13,9 @@ export default function ShopsByCategory({ navigation }) {
   const shops = useAppSelector((state) => state.shops.shops);
   const categoryid = useAppSelector((state) => state.shops.categoryid);
   const funcScore = (arr: Comment[]) => {
+    if (!arr.length) return " Недостаточно оценок";
     let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr?.length; i++) {
       sum += Number(arr[i].stars);
     }
     return sum / arr.length;
